@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="sba" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <style>
+      .nf   { fill:#151d30; stroke:#3b82f6; stroke-width:1.6; rx:10; }
+      .nf2  { fill:#151d30; stroke:#06b6d4; stroke-width:1.6; rx:10; }
+      .newf { fill:#1a1430; stroke:#8b5cf6; stroke-width:1.8; rx:10; }
+      .lbl  { fill:#e8edf5; font-size:15px; font-weight:700; text-anchor:middle; }
+      .sub  { fill:#9fb0c8; font-size:11px; text-anchor:middle; }
+      .ttl  { fill:#e8edf5; font-size:16px; font-weight:800; }
+      .bus  { stroke:url(#sba); stroke-width:4; }
+      .ln   { stroke:#30455f; stroke-width:1.6; }
+      .ref  { fill:#6b7a94; font-size:11px; text-anchor:middle; }
+      .zone { fill:#0e1526; stroke:#223049; stroke-width:1.3; rx:14; }
+    </style>
+  </defs>
+
+  <rect width="960" height="560" fill="#0a0e1a"/>
+
+  <!-- UE -->
+  <rect class="zone" x="40" y="250" width="110" height="70"/>
+  <text class="lbl" x="95" y="282">UE</text>
+  <text class="sub" x="95" y="302">device</text>
+
+  <!-- RAN zone -->
+  <rect class="zone" x="180" y="200" width="200" height="170"/>
+  <text class="ttl" x="196" y="226">RAN</text>
+  <rect class="nf2" x="200" y="238" width="160" height="40" rx="10"/>
+  <text class="lbl" x="280" y="263">gNB-CU (CP/UP)</text>
+  <rect class="nf2" x="200" y="288" width="75" height="36" rx="10"/>
+  <text class="lbl" x="237" y="311" font-size="12">gNB-DU</text>
+  <rect class="nf2" x="285" y="288" width="75" height="36" rx="10"/>
+  <text class="lbl" x="322" y="311" font-size="12">RIS*</text>
+  <text class="ref" x="280" y="344">F1 / E1 · TS 38.401</text>
+
+  <!-- UE-RAN link -->
+  <line class="ln" x1="150" y1="285" x2="200" y2="258"/>
+  <text class="ref" x="175" y="262">Uu</text>
+
+  <!-- Service-Based Bus -->
+  <line class="bus" x1="430" y1="150" x2="920" y2="150"/>
+  <text class="ttl" x="430" y="135">Service-Based Architecture (SBA) · TS 23.501</text>
+
+  <!-- Core NFs on the bus -->
+  <g>
+    <rect class="nf" x="430" y="180" width="90" height="48"/>
+    <text class="lbl" x="475" y="200">AMF</text><text class="sub" x="475" y="217">mobility</text>
+    <line class="ln" x1="475" y1="180" x2="475" y2="150"/>
+
+    <rect class="nf" x="530" y="180" width="90" height="48"/>
+    <text class="lbl" x="575" y="200">SMF</text><text class="sub" x="575" y="217">sessions</text>
+    <line class="ln" x1="575" y1="180" x2="575" y2="150"/>
+
+    <rect class="nf" x="630" y="180" width="90" height="48"/>
+    <text class="lbl" x="675" y="200">PCF</text><text class="sub" x="675" y="217">policy</text>
+    <line class="ln" x1="675" y1="180" x2="675" y2="150"/>
+
+    <rect class="nf" x="730" y="180" width="90" height="48"/>
+    <text class="lbl" x="775" y="200">NEF</text><text class="sub" x="775" y="217">exposure</text>
+    <line class="ln" x1="775" y1="180" x2="775" y2="150"/>
+
+    <rect class="nf" x="830" y="180" width="90" height="48"/>
+    <text class="lbl" x="875" y="200">UDM</text><text class="sub" x="875" y="217">subscriber</text>
+    <line class="ln" x1="875" y1="180" x2="875" y2="150"/>
+  </g>
+
+  <!-- Second row NFs -->
+  <g>
+    <rect class="nf" x="430" y="80" width="90" height="48"/>
+    <text class="lbl" x="475" y="100">UDR</text><text class="sub" x="475" y="117">data store</text>
+    <line class="ln" x1="475" y1="128" x2="475" y2="150"/>
+
+    <rect class="newf" x="560" y="80" width="110" height="48"/>
+    <text class="lbl" x="615" y="100">NWDAF</text><text class="sub" x="615" y="117">AnLF + MTLF (AI/ML)</text>
+    <line class="ln" x1="615" y1="128" x2="615" y2="150"/>
+
+    <rect class="newf" x="710" y="80" width="120" height="48"/>
+    <text class="lbl" x="770" y="100">SenF*</text><text class="sub" x="770" y="117">SenF-C / SenF-P (ISAC)</text>
+    <line class="ln" x1="770" y1="128" x2="770" y2="150"/>
+  </g>
+
+  <!-- UPF (user plane, below) -->
+  <rect class="nf" x="430" y="300" width="100" height="48"/>
+  <text class="lbl" x="480" y="320">UPF</text><text class="sub" x="480" y="337">user plane</text>
+  <line class="ln" x1="480" y1="300" x2="480" y2="228"/>
+  <text class="ref" x="505" y="266">N4</text>
+  <!-- RAN to UPF (N3) -->
+  <line class="ln" x1="360" y1="300" x2="430" y2="320"/>
+  <text class="ref" x="395" y="330">N3</text>
+
+  <!-- Data network -->
+  <rect class="zone" x="580" y="300" width="130" height="48"/>
+  <text class="lbl" x="645" y="328">Data Network</text>
+  <line class="ln" x1="530" y1="324" x2="580" y2="324"/>
+  <text class="ref" x="555" y="318">N6</text>
+
+  <!-- 6G concepts band -->
+  <rect class="zone" x="40" y="420" width="880" height="110"/>
+  <text class="ttl" x="56" y="446">6G concepts under study</text>
+  <rect class="newf" x="60" y="458" width="190" height="56"/>
+  <text class="lbl" x="155" y="482">AI-Native NF</text><text class="sub" x="155" y="500">embedded inference · TS 28.105</text>
+  <rect class="newf" x="270" y="458" width="200" height="56"/>
+  <text class="lbl" x="370" y="482">Network Digital Twin</text><text class="sub" x="370" y="500">TS 28.561</text>
+  <rect class="newf" x="490" y="458" width="200" height="56"/>
+  <text class="lbl" x="590" y="482">Compute–Network Integ.</text><text class="sub" x="590" y="500">TS 23.548 / 23.558</text>
+  <rect class="newf" x="710" y="458" width="190" height="56"/>
+  <text class="lbl" x="805" y="482">NTN Integration</text><text class="sub" x="805" y="500">TS 38.300 · TR 38.914</text>
+
+  <text class="ref" x="480" y="548">* RIS, SenF and the 6G concept blocks are at study / early-specification stage in 3GPP.</text>
+</svg>

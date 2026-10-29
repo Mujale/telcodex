@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>6G Network Evolution — A 3GPP Standards Primer</title>
+<meta name="description" content="An educational primer on 6G network evolution in 3GPP: standardization timeline, features under study, and network architecture. Built from public 3GPP sources." />
+
+<!-- =========================================================
+     GOOGLE ADSENSE — paste your script here when ready.
+     Replace ca-pub-XXXXXXXXXXXXXXXX with your Publisher ID.
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+     ========================================================= -->
+
+<style>
+  :root {
+    --bg:        #f7f8fb;
+    --surface:   #ffffff;
+    --ink:       #1c2433;
+    --ink-soft:  #4b5668;
+    --ink-faint: #8a93a6;
+    --line:      #e4e8f0;
+    --brand:     #2563eb;
+    --brand-2:   #0891b2;
+    --brand-3:   #7c3aed;
+    --accent-bg: #eef3ff;
+    --good:      #0a7d3b;
+    --good-bg:   #e6f5ec;
+    --warn:      #9a6a00;
+    --warn-bg:   #fbf2dd;
+    --code-bg:   #eef1f6;
+    --radius:    14px;
+    --maxw:      860px;
+    --sans: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#0b0f1a; --surface:#121a2b; --ink:#e8edf5; --ink-soft:#aab6c9; --ink-faint:#6f7c93;
+      --line:#223049; --accent-bg:#17233c; --code-bg:#17203200; --code-bg:#182135;
+      --good:#4ade80; --good-bg:#10261a; --warn:#fbbf24; --warn-bg:#2a2210;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ---------- Header ---------- */
+  header.site {
+    background: linear-gradient(120deg, var(--brand) 0%, var(--brand-3) 100%);
+    color: #fff;
+  }
+  header.site .inner { max-width: 1100px; margin: 0 auto; padding: 26px 24px 20px; }
+  .brand { display: flex; align-items: center; gap: 13px; }
+  .brand .logo {
+    width: 42px; height: 42px; border-radius: 11px; background: rgba(255,255,255,0.16);
+    display: grid; place-items: center; font-weight: 800; font-size: 16px; letter-spacing: .5px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .brand h1 { font-size: 21px; font-weight: 800; letter-spacing: -.3px; }
+  .brand .sub { color: rgba(255,255,255,0.82); font-size: 13px; font-weight: 500; }
+
+  /* ---------- Tab bar ---------- */
+  nav.tabs {
+    position: sticky; top: 0; z-index: 40;
+    background: var(--surface); border-bottom: 1px solid var(--line);
+    box-shadow: 0 1px 8px rgba(20,30,60,0.04);
+  }
+  nav.tabs .inner { max-width: 1100px; margin: 0 auto; padding: 0 16px; display: flex; gap: 4px; overflow-x: auto; }
+  nav.tabs button {
+    appearance: none; border: none; background: none; cursor: pointer;
+    font-family: inherit; font-size: 14.5px; font-weight: 600; color: var(--ink-soft);
+    padding: 15px 18px; border-bottom: 3px solid transparent; white-space: nowrap;
+    display: flex; align-items: center; gap: 9px; transition: color .15s;
+  }
+  nav.tabs button .n {
+    width: 22px; height: 22px; border-radius: 6px; background: var(--accent-bg); color: var(--brand);
+    display: grid; place-items: center; font-size: 12px; font-weight: 800;
+  }
+  nav.tabs button:hover { color: var(--ink); }
+  nav.tabs button.active { color: var(--brand); border-bottom-color: var(--brand); }
+  nav.tabs button.active .n { background: var(--brand); color: #fff; }
+
+  /* ---------- Layout ---------- */
+  .layout { max-width: 1100px; margin: 0 auto; padding: 28px 16px 60px; display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 1024px) { .layout { grid-template-columns: minmax(0,1fr) 300px; } }
+
+  main { min-width: 0; }
+  .doc {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 32px clamp(20px, 4vw, 48px); max-width: var(--maxw); margin: 0 auto;
+    font-size: 15.5px;
+  }
+
+  /* ---------- Rendered markdown typography ---------- */
+  .doc h1 { font-size: clamp(25px, 4vw, 32px); font-weight: 800; letter-spacing: -.5px; line-height: 1.2; margin: 0 0 4px; }
+  .doc h2 { font-size: 21px; font-weight: 800; margin: 30px 0 10px; padding-top: 14px; border-top: 1px solid var(--line); letter-spacing: -.3px; }
+  .doc h2:first-of-type { border-top: none; padding-top: 0; margin-top: 18px; }
+  .doc h3 { font-size: 17px; font-weight: 700; margin: 20px 0 7px; color: var(--ink); }
+  .doc h4 { font-size: 14.5px; font-weight: 700; margin: 15px 0 6px; color: var(--ink-soft); }
+  .doc p { margin: 0 0 11px; color: var(--ink-soft); }
+  .doc strong { color: var(--ink); font-weight: 700; }
+  .doc em { color: var(--ink-soft); }
+  .doc ul, .doc ol { margin: 0 0 12px; padding-left: 22px; color: var(--ink-soft); }
+  .doc li { margin: 3px 0; }
+  .doc li strong { color: var(--ink); }
+  .doc hr { border: none; border-top: 1px solid var(--line); margin: 20px 0; }
+  .doc a { font-weight: 600; }
+  .doc img { max-width: 100%; height: auto; display: block; margin: 16px auto; border: 1px solid var(--line); border-radius: 12px; background: #0a0e1a; }
+
+  .doc code {
+    font-family: var(--mono); font-size: 0.88em; background: var(--code-bg);
+    padding: 2px 6px; border-radius: 5px; color: var(--brand-3);
+  }
+  .doc pre { background: var(--code-bg); border: 1px solid var(--line); border-radius: 10px; padding: 16px; overflow-x: auto; margin: 0 0 18px; }
+  .doc pre code { background: none; padding: 0; color: var(--ink); }
+
+  /* blockquote → callout */
+  .doc blockquote {
+    margin: 0 0 12px; padding: 11px 16px; background: var(--warn-bg);
+    border-left: 4px solid var(--warn); border-radius: 0 10px 10px 0; color: var(--ink-soft);
+  }
+  .doc blockquote p { margin: 0; }
+  .doc blockquote strong { color: var(--ink); }
+
+  /* tables */
+  .doc .table-wrap { overflow-x: auto; margin: 0 0 14px; border: 1px solid var(--line); border-radius: 10px; }
+  .doc table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .doc th, .doc td { text-align: left; padding: 8px 13px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
+  .doc thead th { background: var(--accent-bg); color: var(--ink); font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: .4px; }
+  .doc tbody tr:last-child td { border-bottom: none; }
+  .doc tbody tr:nth-child(even) { background: color-mix(in srgb, var(--accent-bg) 40%, transparent); }
+
+  /* ---------- Sidebar / ad rail ---------- */
+  aside { display: flex; flex-direction: column; gap: 20px; }
+  @media (max-width: 1023px) { aside { max-width: var(--maxw); margin: 0 auto; width: 100%; } }
+  .side-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+  .side-card h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--ink-faint); margin-bottom: 12px; }
+  .toc a { display: block; font-size: 13.5px; color: var(--ink-soft); padding: 5px 0; border-left: 2px solid transparent; padding-left: 10px; }
+  .toc a:hover { color: var(--brand); border-left-color: var(--brand); text-decoration: none; }
+
+  /* Ad slots — reserved, clearly labelled. Drop AdSense <ins> inside .ad-slot later. */
+  .ad {
+    background: var(--surface); border: 1px dashed var(--line); border-radius: var(--radius);
+    min-height: 100px; display: grid; place-items: center; text-align: center; padding: 16px;
+  }
+  .ad .ad-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-faint); }
+  .ad.rail { position: sticky; top: 72px; min-height: 600px; }
+  .ad-inline { margin: 20px auto; max-width: var(--maxw); }
+
+  /* ---------- States ---------- */
+  .notice { max-width: var(--maxw); margin: 0 auto; background: var(--warn-bg); border: 1px solid var(--warn); border-radius: var(--radius); padding: 22px 26px; }
+  .notice h3 { margin-bottom: 10px; color: var(--ink); }
+  .notice code { font-family: var(--mono); background: var(--code-bg); padding: 2px 7px; border-radius: 5px; }
+  .loading { text-align: center; color: var(--ink-faint); padding: 50px 0; }
+
+  footer.site { border-top: 1px solid var(--line); background: var(--surface); }
+  footer.site .inner { max-width: 1100px; margin: 0 auto; padding: 26px 24px; color: var(--ink-faint); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="inner">
+    <div class="brand">
+      <span class="logo">6G</span>
+      <div>
+        <h1>6G Network Evolution</h1>
+        <div class="sub">The Standards &amp; 6G Architecture Codex</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="inner" id="tabbar">
+    <button data-tab="0" class="active"><span class="n">1</span>Standardization &amp; Timeline</button>
+    <button data-tab="1"><span class="n">2</span>Features Under Study</button>
+    <button data-tab="2"><span class="n">3</span>Network Architecture</button>
+  </div>
+</nav>
+
+<div class="layout">
+  <main>
+    <!-- top inline ad slot -->
+    <div class="ad ad-inline"><span class="ad-label">Advertisement</span></div>
+
+    <article class="doc" id="doc">
+      <div class="loading">Loading…</div>
+    </article>
+
+    <!-- bottom inline ad slot -->
+    <div class="ad ad-inline"><span class="ad-label">Advertisement</span></div>
+  </main>
+
+  <aside>
+    <div class="side-card">
+      <h4>On this page</h4>
+      <nav class="toc" id="toc"></nav>
+    </div>
+    <!-- sidebar/rail ad slot -->
+    <div class="ad rail"><span class="ad-label">Advertisement</span></div>
+  </aside>
+</div>
+
+<script>
+/* -------------------------------------------------------------
+   Tabs → markdown files. Edit the .md files; the site re-renders.
+   ------------------------------------------------------------- */
+const TABS = [
+  { file: "6G-Standardization-Work.md" },
+  { file: "6G-Network-Evolution-Features.md" },
+  { file: "6G-Network-Architecture.md" }
+];
+
+const docEl = document.getElementById("doc");
+const tocEl = document.getElementById("toc");
+
+/* ---- Minimal, dependency-free Markdown → HTML renderer ----
+   Supports: headings, bold/italic/code, links, images, lists,
+   blockquotes, hr, GFM tables, paragraphs. Escapes HTML first. */
+function escapeHtml(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function inline(s){
+  s = escapeHtml(s);
+  s = s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img alt="$1" src="$2" />');
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  s = s.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  return s;
+}
+
+function renderTable(rows){
+  // rows: array of raw "| a | b |" lines (header, sep, body...)
+  const cells = r => r.trim().replace(/^\||\|$/g,"").split("|").map(c=>c.trim());
+  const head = cells(rows[0]);
+  let html = '<div class="table-wrap"><table><thead><tr>';
+  head.forEach(h => html += "<th>"+inline(h)+"</th>");
+  html += "</tr></thead><tbody>";
+  for (let i=2;i<rows.length;i++){
+    if(!rows[i].trim()) continue;
+    html += "<tr>";
+    cells(rows[i]).forEach(c => html += "<td>"+inline(c)+"</td>");
+    html += "</tr>";
+  }
+  html += "</tbody></table></div>";
+  return html;
+}
+
+function mdToHtml(md){
+  const lines = md.replace(/\r\n/g,"\n").split("\n");
+  let out = [], i = 0;
+  const isTableSep = s => /^\s*\|?[\s:|-]+\|[\s:|-]*$/.test(s) && s.includes("-");
+
+  while (i < lines.length){
+    let line = lines[i];
+
+    if (/^\s*$/.test(line)) { i++; continue; }
+
+    // hr
+    if (/^\s*---\s*$/.test(line)) { out.push("<hr />"); i++; continue; }
+
+    // heading
+    const h = line.match(/^(#{1,6})\s+(.*)$/);
+    if (h){ const lv=h[1].length; out.push(`<h${lv}>${inline(h[2])}</h${lv}>`); i++; continue; }
+
+    // blockquote (consecutive >)
+    if (/^\s*>\s?/.test(line)){
+      let buf=[];
+      while(i<lines.length && /^\s*>\s?/.test(lines[i])){ buf.push(lines[i].replace(/^\s*>\s?/,"")); i++; }
+      out.push("<blockquote>"+mdToHtml(buf.join("\n"))+"</blockquote>");
+      continue;
+    }
+
+    // table (line with | followed by a separator row)
+    if (line.includes("|") && i+1<lines.length && isTableSep(lines[i+1])){
+      let buf=[line];
+      i++;
+      buf.push(lines[i]); i++; // sep
+      while(i<lines.length && lines[i].includes("|") && lines[i].trim()){ buf.push(lines[i]); i++; }
+      out.push(renderTable(buf));
+      continue;
+    }
+
+    // unordered list
+    if (/^\s*[-*]\s+/.test(line)){
+      let buf=[];
+      while(i<lines.length && /^\s*[-*]\s+/.test(lines[i])){
+        buf.push("<li>"+inline(lines[i].replace(/^\s*[-*]\s+/,""))+"</li>");
+        i++;
+      }
+      out.push("<ul>"+buf.join("")+"</ul>");
+      continue;
+    }
+
+    // ordered list
+    if (/^\s*\d+\.\s+/.test(line)){
+      let buf=[];
+      while(i<lines.length && /^\s*\d+\.\s+/.test(lines[i])){
+        buf.push("<li>"+inline(lines[i].replace(/^\s*\d+\.\s+/,""))+"</li>");
+        i++;
+      }
+      out.push("<ol>"+buf.join("")+"</ol>");
+      continue;
+    }
+
+    // paragraph (gather until blank / block element)
+    let buf=[line]; i++;
+    while(i<lines.length && !/^\s*$/.test(lines[i]) &&
+          !/^(#{1,6})\s/.test(lines[i]) && !/^\s*[-*]\s+/.test(lines[i]) &&
+          !/^\s*\d+\.\s+/.test(lines[i]) && !/^\s*>/.test(lines[i]) &&
+          !/^\s*---\s*$/.test(lines[i]) && !lines[i].includes("|")){
+      buf.push(lines[i]); i++;
+    }
+    out.push("<p>"+inline(buf.join(" "))+"</p>");
+  }
+  return out.join("\n");
+}
+
+function buildTOC(){
+  tocEl.innerHTML = "";
+  const heads = docEl.querySelectorAll("h2");
+  if(!heads.length){ tocEl.innerHTML = '<span style="font-size:13px;color:var(--ink-faint)">—</span>'; return; }
+  heads.forEach((hh, idx) => {
+    const id = "sec-"+idx;
+    hh.id = id;
+    const a = document.createElement("a");
+    a.href = "#"+id;
+    a.textContent = hh.textContent;
+    tocEl.appendChild(a);
+  });
+}
+
+async function loadTab(idx){
+  document.querySelectorAll("#tabbar button").forEach((b,k)=>b.classList.toggle("active", k===idx));
+  docEl.innerHTML = '<div class="loading">Loading…</div>';
+  try{
+    const res = await fetch(TABS[idx].file, {cache:"no-store"});
+    if(!res.ok) throw new Error(res.status);
+    const md = await res.text();
+    docEl.innerHTML = mdToHtml(md);
+    buildTOC();
+    window.scrollTo({top:0, behavior:"smooth"});
+  }catch(err){
+    docEl.innerHTML = `
+      <div class="notice">
+        <h3>Couldn't load the document</h3>
+        <p>The page tried to read <code>${TABS[idx].file}</code> but the browser blocked it
+        (this happens when the file is opened directly with <code>file://</code>).</p>
+        <p><strong>Run a tiny local server from this folder, then reload:</strong></p>
+        <pre><code>python -m http.server 8000</code></pre>
+        <p>Then open <a href="http://localhost:8000/site.html">http://localhost:8000/site.html</a>.
+        Any static server works; this is only needed because browsers restrict local file reads.</p>
+      </div>`;
+    tocEl.innerHTML = "";
+  }
+}
+
+document.getElementById("tabbar").addEventListener("click", e=>{
+  const btn = e.target.closest("button");
+  if(!btn) return;
+  loadTab(Number(btn.dataset.tab));
+});
+
+loadTab(0);
+</script>
+</body>
+</html>

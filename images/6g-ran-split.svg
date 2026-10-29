@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <style>
+      .box  { fill:#151d30; stroke:#06b6d4; stroke-width:1.6; }
+      .boxp { fill:#1a1430; stroke:#8b5cf6; stroke-width:1.6; }
+      .lbl  { fill:#e8edf5; font-size:15px; font-weight:700; text-anchor:middle; }
+      .sub  { fill:#9fb0c8; font-size:11px; text-anchor:middle; }
+      .ln   { stroke:#3b82f6; stroke-width:2; }
+      .ref  { fill:#6b7a94; font-size:11px; text-anchor:middle; }
+      .ttl  { fill:#e8edf5; font-size:16px; font-weight:800; text-anchor:middle; }
+    </style>
+  </defs>
+  <rect width="900" height="360" fill="#0a0e1a"/>
+  <text class="ttl" x="450" y="40">gNB CU / DU / RU split — carried forward and evolved for 6G</text>
+
+  <!-- 5GC -->
+  <rect class="boxp" x="40" y="150" width="120" height="60" rx="10"/>
+  <text class="lbl" x="100" y="178">5GC / 6G Core</text>
+  <text class="sub" x="100" y="196">SBA</text>
+
+  <!-- CU -->
+  <rect class="box" x="230" y="110" width="200" height="140" rx="12"/>
+  <text class="lbl" x="330" y="135">gNB-CU</text>
+  <rect class="box" x="250" y="150" width="160" height="40" rx="8"/>
+  <text class="lbl" x="330" y="175" font-size="13">CU-CP (RRC/PDCP-C)</text>
+  <rect class="box" x="250" y="198" width="160" height="40" rx="8"/>
+  <text class="lbl" x="330" y="223" font-size="13">CU-UP (SDAP/PDCP-U)</text>
+
+  <!-- DU -->
+  <rect class="box" x="520" y="130" width="150" height="100" rx="12"/>
+  <text class="lbl" x="595" y="170">gNB-DU</text>
+  <text class="sub" x="595" y="190">RLC / MAC / PHY-high</text>
+
+  <!-- RU -->
+  <rect class="box" x="760" y="140" width="110" height="80" rx="12"/>
+  <text class="lbl" x="815" y="178">RU</text>
+  <text class="sub" x="815" y="196">PHY-low / RF</text>
+
+  <!-- links -->
+  <line class="ln" x1="160" y1="180" x2="230" y2="180"/>
+  <text class="ref" x="195" y="172">NG</text>
+
+  <line class="ln" x1="330" y1="150" x2="330" y2="110"/>
+  <line class="ln" x1="410" y1="170" x2="410" y2="170"/>
+  <text class="ref" x="330" y="104">E1 (CU-CP ↔ CU-UP)</text>
+
+  <line class="ln" x1="430" y1="180" x2="520" y2="180"/>
+  <text class="ref" x="475" y="172">F1</text>
+
+  <line class="ln" x1="670" y1="180" x2="760" y2="180"/>
+  <text class="ref" x="715" y="172">7-2x (option)</text>
+
+  <text class="ref" x="450" y="310">References: TS 38.401, TS 38.300 · F1 (TS 38.470/473) · E1 (TS 38.460/463)</text>
+  <text class="ref" x="450" y="332">Further disaggregation for sub-THz and AI-native radio is under study (TR 38.914).</text>
+</svg>
