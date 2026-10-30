@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The 6G Standards &amp; Architecture Codex — A 3GPP Primer</title>
+<meta name="description" content="An educational primer on 6G network evolution in 3GPP: the standardization timeline, features under study, and network architecture. Built from public 3GPP sources." />
+<meta name="author" content="The 6G Standards & Architecture Codex" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://telcodex.io/" />
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The 6G Standards & Architecture Codex" />
+<meta property="og:description" content="Educational primer on 6G in 3GPP: standardization timeline, features under study, and network architecture." />
+<meta property="og:url" content="https://telcodex.io/" />
+<meta name="twitter:card" content="summary" />
+
+<!-- =========================================================
+     CONSENT-GATED THIRD-PARTY SCRIPTS
+     Do NOT paste the AdSense <script> directly in <head>. Under GDPR/ePrivacy,
+     non-essential (advertising/analytics) scripts must load ONLY after the user
+     opts in. This site enforces that: the loader at the bottom of the page injects
+     AdSense / analytics after consent is granted.
+
+     1) For EEA/UK + California compliance with AdSense, use a Google-certified CMP
+        (recommended: Google "Privacy & messaging" / Funding Choices, free in your
+        AdSense account). Paste the Funding Choices snippet it gives you in the
+        marked block below, then set USE_GOOGLE_CMP = true in the CONSENT CONFIG
+        (bottom script). That disables the built-in banner so users see only one prompt.
+
+     2) Set your Publisher ID in the CONSENT CONFIG (see bottom script: ADS_CLIENT).
+        While USE_GOOGLE_CMP = false, the built-in banner injects AdSense only for
+        users who accept "Advertising".
+
+     ----- PASTE GOOGLE "PRIVACY & MESSAGING" / FUNDING CHOICES SNIPPET BELOW -----
+     (It looks like:  <script async src="https://fundingchoicesmessages.google.com/i/ca-pub-XXXX?ers=1"></script>
+                      <script>(function(){ ... googlefc ... })();</script> )
+
+     ----- END FUNDING CHOICES SNIPPET -----
+     ========================================================= -->
+
+<style>
+  :root {
+    --bg:        #f7f8fb;
+    --surface:   #ffffff;
+    --ink:       #1c2433;
+    --ink-soft:  #4b5668;
+    --ink-faint: #8a93a6;
+    --line:      #e4e8f0;
+    --brand:     #2563eb;
+    --brand-2:   #0891b2;
+    --brand-3:   #7c3aed;
+    --accent-bg: #eef3ff;
+    --good:      #0a7d3b;
+    --good-bg:   #e6f5ec;
+    --warn:      #9a6a00;
+    --warn-bg:   #fbf2dd;
+    --code-bg:   #eef1f6;
+    --radius:    14px;
+    --maxw:      100%;
+    --shell:     100%;
+    --pad:       clamp(16px, 3vw, 48px);
+    --sans: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#0b0f1a; --surface:#121a2b; --ink:#e8edf5; --ink-soft:#aab6c9; --ink-faint:#6f7c93;
+      --line:#223049; --accent-bg:#17233c; --code-bg:#17203200; --code-bg:#182135;
+      --good:#4ade80; --good-bg:#10261a; --warn:#fbbf24; --warn-bg:#2a2210;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ---------- Header ---------- */
+  header.site {
+    background: linear-gradient(120deg, var(--brand) 0%, var(--brand-3) 100%);
+    color: #fff;
+  }
+  header.site .inner { max-width: var(--shell); margin: 0 auto; padding: clamp(18px,2.5vw,28px) var(--pad) clamp(14px,2vw,20px); }
+  .brand { display: flex; align-items: center; gap: 13px; }
+  .brand .logo {
+    width: 42px; height: 42px; border-radius: 11px; background: rgba(255,255,255,0.16);
+    display: grid; place-items: center; font-weight: 800; font-size: 16px; letter-spacing: .5px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .brand h1 { font-size: 21px; font-weight: 800; letter-spacing: -.3px; }
+  .brand .sub { color: rgba(255,255,255,0.82); font-size: 13px; font-weight: 500; }
+  header.site .inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  nav.sitenav { display: flex; gap: 20px; flex-wrap: wrap; }
+  nav.sitenav a { color: rgba(255,255,255,0.9); font-size: 14px; font-weight: 600; }
+  nav.sitenav a:hover { color: #fff; text-decoration: underline; }
+  @media (max-width: 620px){ nav.sitenav { gap: 14px; font-size: 13px; } }
+
+  /* ---------- Tab bar ---------- */
+  nav.tabs {
+    position: sticky; top: 0; z-index: 40;
+    background: var(--surface); border-bottom: 1px solid var(--line);
+    box-shadow: 0 1px 8px rgba(20,30,60,0.04);
+  }
+  nav.tabs .inner { max-width: var(--shell); margin: 0 auto; padding: 0 var(--pad); display: flex; gap: 4px; overflow-x: auto; }
+  nav.tabs button {
+    appearance: none; border: none; background: none; cursor: pointer;
+    font-family: inherit; font-size: 14.5px; font-weight: 600; color: var(--ink-soft);
+    padding: 15px 18px; border-bottom: 3px solid transparent; white-space: nowrap;
+    display: flex; align-items: center; gap: 9px; transition: color .15s;
+  }
+  nav.tabs button .n {
+    width: 22px; height: 22px; border-radius: 6px; background: var(--accent-bg); color: var(--brand);
+    display: grid; place-items: center; font-size: 12px; font-weight: 800;
+  }
+  nav.tabs button:hover { color: var(--ink); }
+  nav.tabs button.active { color: var(--brand); border-bottom-color: var(--brand); }
+  nav.tabs button.active .n { background: var(--brand); color: #fff; }
+
+  /* ---------- Layout ---------- */
+  .layout { max-width: var(--shell); margin: 0 auto; padding: clamp(18px,2.5vw,32px) var(--pad) 60px; display: grid; grid-template-columns: 1fr; gap: clamp(18px,2vw,32px); }
+  @media (min-width: 1024px) { .layout { grid-template-columns: minmax(0,1fr) clamp(260px, 22vw, 360px); } }
+
+  main { min-width: 0; }
+  .doc {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 36px clamp(24px, 5vw, 72px); max-width: var(--maxw); margin: 0 auto;
+    font-size: 15.5px;
+  }
+
+  /* ---------- Rendered markdown typography ---------- */
+  .doc h1 { font-size: clamp(25px, 4vw, 32px); font-weight: 800; letter-spacing: -.5px; line-height: 1.2; margin: 0 0 4px; }
+  .doc h2 { font-size: 21px; font-weight: 800; margin: 30px 0 10px; padding-top: 14px; border-top: 1px solid var(--line); letter-spacing: -.3px; }
+  .doc h2:first-of-type { border-top: none; padding-top: 0; margin-top: 18px; }
+  .doc h3 { font-size: 17px; font-weight: 700; margin: 20px 0 7px; color: var(--ink); }
+  .doc h4 { font-size: 14.5px; font-weight: 700; margin: 15px 0 6px; color: var(--ink-soft); }
+  .doc p { margin: 0 0 11px; color: var(--ink-soft); }
+  .doc strong { color: var(--ink); font-weight: 700; }
+  .doc em { color: var(--ink-soft); }
+  .doc ul, .doc ol { margin: 0 0 12px; padding-left: 22px; color: var(--ink-soft); }
+  .doc li { margin: 3px 0; }
+  .doc li strong { color: var(--ink); }
+  .doc hr { border: none; border-top: 1px solid var(--line); margin: 20px 0; }
+  .doc a { font-weight: 600; }
+  .doc img { max-width: 100%; height: auto; display: block; margin: 16px auto; border: 1px solid var(--line); border-radius: 12px; background: #0a0e1a; }
+
+  .doc code {
+    font-family: var(--mono); font-size: 0.88em; background: var(--code-bg);
+    padding: 2px 6px; border-radius: 5px; color: var(--brand-3);
+  }
+  .doc pre { background: var(--code-bg); border: 1px solid var(--line); border-radius: 10px; padding: 16px; overflow-x: auto; margin: 0 0 18px; }
+  .doc pre code { background: none; padding: 0; color: var(--ink); }
+
+  /* blockquote → callout */
+  .doc blockquote {
+    margin: 0 0 12px; padding: 11px 16px; background: var(--warn-bg);
+    border-left: 4px solid var(--warn); border-radius: 0 10px 10px 0; color: var(--ink-soft);
+  }
+  .doc blockquote p { margin: 0; }
+  .doc blockquote strong { color: var(--ink); }
+
+  /* tables */
+  .doc .table-wrap { overflow-x: auto; margin: 0 0 14px; border: 1px solid var(--line); border-radius: 10px; }
+  .doc table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .doc th, .doc td { text-align: left; padding: 8px 13px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
+  .doc thead th { background: var(--accent-bg); color: var(--ink); font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: .4px; }
+  .doc tbody tr:last-child td { border-bottom: none; }
+  .doc tbody tr:nth-child(even) { background: color-mix(in srgb, var(--accent-bg) 40%, transparent); }
+
+  /* ---------- Sidebar / ad rail ---------- */
+  aside { display: flex; flex-direction: column; gap: 20px; }
+  @media (max-width: 1023px) { aside { max-width: var(--maxw); margin: 0 auto; width: 100%; } }
+  .side-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+  .side-card h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--ink-faint); margin-bottom: 12px; }
+  .toc a { display: block; font-size: 13.5px; color: var(--ink-soft); padding: 5px 0; border-left: 2px solid transparent; padding-left: 10px; }
+  .toc a:hover { color: var(--brand); border-left-color: var(--brand); text-decoration: none; }
+
+  /* Ad slots — reserved, clearly labelled. Drop AdSense <ins> inside .ad-slot later. */
+  .ad {
+    background: var(--surface); border: 1px dashed var(--line); border-radius: var(--radius);
+    min-height: 100px; display: grid; place-items: center; text-align: center; padding: 16px;
+  }
+  .ad .ad-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-faint); }
+  .ad.rail { position: sticky; top: 72px; min-height: 600px; }
+  .ad-inline { margin: 20px auto; max-width: var(--maxw); }
+
+  /* ---------- States ---------- */
+  .notice { max-width: var(--maxw); margin: 0 auto; background: var(--warn-bg); border: 1px solid var(--warn); border-radius: var(--radius); padding: 22px 26px; }
+  .notice h3 { margin-bottom: 10px; color: var(--ink); }
+  .notice code { font-family: var(--mono); background: var(--code-bg); padding: 2px 7px; border-radius: 5px; }
+  .loading { text-align: center; color: var(--ink-faint); padding: 50px 0; }
+
+  footer.site { border-top: 1px solid var(--line); background: var(--surface); }
+  footer.site .inner { max-width: var(--shell); margin: 0 auto; padding: 22px var(--pad); color: var(--ink-faint); font-size: 13px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  footer.site .flinks { display: flex; gap: 18px; flex-wrap: wrap; }
+  footer.site .flinks a, footer.site .flinks button {
+    color: var(--ink-soft); font-size: 13px; font-family: inherit; background: none; border: none;
+    cursor: pointer; padding: 0; text-decoration: none;
+  }
+  footer.site .flinks a:hover, footer.site .flinks button:hover { color: var(--brand); text-decoration: underline; }
+
+  .hidden { display: none !important; }
+
+  /* ---------- Cookie consent banner ---------- */
+  .cc-banner {
+    position: fixed; inset: auto 0 0 0; z-index: 1000;
+    background: var(--surface); border-top: 2px solid var(--brand);
+    box-shadow: 0 -8px 30px rgba(10,20,50,0.18);
+    padding: clamp(16px,2vw,22px) var(--pad);
+  }
+  .cc-banner .cc-inner {
+    max-width: var(--shell); margin: 0 auto;
+    display: flex; gap: 22px; align-items: center; flex-wrap: wrap; justify-content: space-between;
+  }
+  .cc-banner .cc-text { flex: 1 1 420px; color: var(--ink-soft); font-size: 14px; }
+  .cc-banner .cc-text strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 15px; }
+  .cc-banner .cc-text a { font-weight: 600; }
+  .cc-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .btn {
+    appearance: none; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
+    padding: 11px 20px; border-radius: 10px; border: 1.5px solid var(--brand); transition: filter .15s, background .15s;
+  }
+  .btn-primary { background: var(--brand); color: #fff; }
+  .btn-primary:hover { filter: brightness(1.08); }
+  .btn-outline { background: transparent; color: var(--brand); }
+  .btn-outline:hover { background: var(--accent-bg); }
+
+  /* ---------- Preferences modal ---------- */
+  .cc-overlay {
+    position: fixed; inset: 0; z-index: 1001; background: rgba(8,14,28,0.55);
+    display: grid; place-items: center; padding: 20px;
+  }
+  .cc-modal {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+    max-width: 560px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 26px;
+  }
+  .cc-modal h2 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+  .cc-modal > p { color: var(--ink-soft); font-size: 14px; margin-bottom: 18px; }
+  .cc-cat { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; }
+  .cc-cat .cc-cat-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .cc-cat h3 { font-size: 15px; font-weight: 700; margin: 0; }
+  .cc-cat p { font-size: 13px; color: var(--ink-soft); margin: 7px 0 0; }
+  .cc-cat .locked { font-size: 12px; font-weight: 700; color: var(--good); background: var(--good-bg); padding: 4px 10px; border-radius: 999px; }
+
+  /* toggle switch */
+  .sw { position: relative; width: 46px; height: 26px; flex: 0 0 46px; }
+  .sw input { opacity: 0; width: 0; height: 0; }
+  .sw .slider { position: absolute; inset: 0; background: var(--line); border-radius: 999px; transition: .2s; cursor: pointer; }
+  .sw .slider::before { content: ""; position: absolute; width: 20px; height: 20px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: .2s; }
+  .sw input:checked + .slider { background: var(--brand); }
+  .sw input:checked + .slider::before { transform: translateX(20px); }
+  .cc-modal .cc-modal-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; margin-top: 18px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="inner">
+    <div class="brand">
+      <span class="logo">6G</span>
+      <div>
+        <h1>6G Network Evolution</h1>
+        <div class="sub">The 6G Standards &amp; Architecture Codex</div>
+      </div>
+    </div>
+    <nav class="sitenav">
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="inner" id="tabbar">
+    <button data-tab="0" class="active"><span class="n">1</span>Standardization &amp; Timeline</button>
+    <button data-tab="1"><span class="n">2</span>Features Under Study</button>
+    <button data-tab="2"><span class="n">3</span>Network Architecture</button>
+  </div>
+</nav>
+
+<div class="layout">
+  <main>
+    <!-- top inline ad slot -->
+    <div class="ad ad-inline"><span class="ad-label">Advertisement</span></div>
+
+    <article class="doc" id="doc">
+      <div class="loading">Loading…</div>
+    </article>
+
+    <!-- bottom inline ad slot -->
+    <div class="ad ad-inline"><span class="ad-label">Advertisement</span></div>
+  </main>
+
+  <aside>
+    <div class="side-card">
+      <h4>On this page</h4>
+      <nav class="toc" id="toc"></nav>
+    </div>
+    <!-- sidebar/rail ad slot -->
+    <div class="ad rail"><span class="ad-label">Advertisement</span></div>
+  </aside>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <span>© <span id="yr"></span> The 6G Standards &amp; Architecture Codex · Educational reference.</span>
+    <nav class="flinks">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>
+      <a href="cookie-policy.html" target="_blank" rel="noopener">Cookie Policy</a>
+      <button type="button" id="ccSettings">Cookie settings</button>
+      <button type="button" id="ccDoNotSell">Do Not Sell or Share My Info</button>
+    </nav>
+  </div>
+</footer>
+
+<!-- ============ Cookie consent banner (first-layer) ============ -->
+<div class="cc-banner hidden" id="ccBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cc-inner">
+    <div class="cc-text">
+      <strong>We value your privacy</strong>
+      We use strictly necessary cookies to make this site work. With your consent we would
+      also use cookies for analytics and advertising (including Google AdSense). You can accept
+      all, reject all non-essential cookies, or choose per category. See our
+      <a href="cookie-policy.html" target="_blank" rel="noopener">Cookie Policy</a> and
+      <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>.
+    </div>
+    <div class="cc-actions">
+      <button type="button" class="btn btn-outline" id="ccReject">Reject all</button>
+      <button type="button" class="btn btn-outline" id="ccCustomize">Customize</button>
+      <button type="button" class="btn btn-primary" id="ccAccept">Accept all</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Preferences modal (granular) ============ -->
+<div class="cc-overlay hidden" id="ccOverlay" role="dialog" aria-modal="true" aria-label="Cookie preferences">
+  <div class="cc-modal">
+    <h2>Cookie preferences</h2>
+    <p>Choose which categories of cookies you allow. Strictly necessary cookies are always on
+       because the site cannot function without them. You can change these choices at any time
+       via “Cookie settings” in the footer.</p>
+
+    <div class="cc-cat">
+      <div class="cc-cat-head">
+        <h3>Strictly necessary</h3>
+        <span class="locked">Always on</span>
+      </div>
+      <p>Required for core functionality and to remember your consent choices. These do not
+         track you for advertising.</p>
+    </div>
+
+    <div class="cc-cat">
+      <div class="cc-cat-head">
+        <h3>Analytics</h3>
+        <label class="sw"><input type="checkbox" id="catAnalytics" /><span class="slider"></span></label>
+      </div>
+      <p>Helps us understand anonymous, aggregated usage (e.g. which pages are read). Loads only
+         if enabled.</p>
+    </div>
+
+    <div class="cc-cat">
+      <div class="cc-cat-head">
+        <h3>Advertising</h3>
+        <label class="sw"><input type="checkbox" id="catAds" /><span class="slider"></span></label>
+      </div>
+      <p>Enables Google AdSense and personalised/limited ads. Loads only if enabled.</p>
+    </div>
+
+    <div class="cc-modal-actions">
+      <button type="button" class="btn btn-outline" id="ccModalReject">Reject all</button>
+      <button type="button" class="btn btn-primary" id="ccModalSave">Save choices</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* -------------------------------------------------------------
+   Tabs → markdown files. Edit the .md files; the site re-renders.
+   ------------------------------------------------------------- */
+const TABS = [
+  { file: "6G-Standardization-Work.md" },
+  { file: "6G-Network-Evolution-Features.md" },
+  { file: "6G-Network-Architecture.md" }
+];
+
+const docEl = document.getElementById("doc");
+const tocEl = document.getElementById("toc");
+
+/* ---- Minimal, dependency-free Markdown → HTML renderer ----
+   Supports: headings, bold/italic/code, links, images, lists,
+   blockquotes, hr, GFM tables, paragraphs. Escapes HTML first. */
+function escapeHtml(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function inline(s){
+  s = escapeHtml(s);
+  s = s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img alt="$1" src="$2" />');
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  s = s.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  return s;
+}
+
+function renderTable(rows){
+  // rows: array of raw "| a | b |" lines (header, sep, body...)
+  const cells = r => r.trim().replace(/^\||\|$/g,"").split("|").map(c=>c.trim());
+  const head = cells(rows[0]);
+  let html = '<div class="table-wrap"><table><thead><tr>';
+  head.forEach(h => html += "<th>"+inline(h)+"</th>");
+  html += "</tr></thead><tbody>";
+  for (let i=2;i<rows.length;i++){
+    if(!rows[i].trim()) continue;
+    html += "<tr>";
+    cells(rows[i]).forEach(c => html += "<td>"+inline(c)+"</td>");
+    html += "</tr>";
+  }
+  html += "</tbody></table></div>";
+  return html;
+}
+
+function mdToHtml(md){
+  const lines = md.replace(/\r\n/g,"\n").split("\n");
+  let out = [], i = 0;
+  const isTableSep = s => /^\s*\|?[\s:|-]+\|[\s:|-]*$/.test(s) && s.includes("-");
+
+  while (i < lines.length){
+    let line = lines[i];
+
+    if (/^\s*$/.test(line)) { i++; continue; }
+
+    // hr
+    if (/^\s*---\s*$/.test(line)) { out.push("<hr />"); i++; continue; }
+
+    // heading
+    const h = line.match(/^(#{1,6})\s+(.*)$/);
+    if (h){ const lv=h[1].length; out.push(`<h${lv}>${inline(h[2])}</h${lv}>`); i++; continue; }
+
+    // blockquote (consecutive >)
+    if (/^\s*>\s?/.test(line)){
+      let buf=[];
+      while(i<lines.length && /^\s*>\s?/.test(lines[i])){ buf.push(lines[i].replace(/^\s*>\s?/,"")); i++; }
+      out.push("<blockquote>"+mdToHtml(buf.join("\n"))+"</blockquote>");
+      continue;
+    }
+
+    // table (line with | followed by a separator row)
+    if (line.includes("|") && i+1<lines.length && isTableSep(lines[i+1])){
+      let buf=[line];
+      i++;
+      buf.push(lines[i]); i++; // sep
+      while(i<lines.length && lines[i].includes("|") && lines[i].trim()){ buf.push(lines[i]); i++; }
+      out.push(renderTable(buf));
+      continue;
+    }
+
+    // unordered list
+    if (/^\s*[-*]\s+/.test(line)){
+      let buf=[];
+      while(i<lines.length && /^\s*[-*]\s+/.test(lines[i])){
+        buf.push("<li>"+inline(lines[i].replace(/^\s*[-*]\s+/,""))+"</li>");
+        i++;
+      }
+      out.push("<ul>"+buf.join("")+"</ul>");
+      continue;
+    }
+
+    // ordered list
+    if (/^\s*\d+\.\s+/.test(line)){
+      let buf=[];
+      while(i<lines.length && /^\s*\d+\.\s+/.test(lines[i])){
+        buf.push("<li>"+inline(lines[i].replace(/^\s*\d+\.\s+/,""))+"</li>");
+        i++;
+      }
+      out.push("<ol>"+buf.join("")+"</ol>");
+      continue;
+    }
+
+    // paragraph (gather until blank / block element)
+    let buf=[line]; i++;
+    while(i<lines.length && !/^\s*$/.test(lines[i]) &&
+          !/^(#{1,6})\s/.test(lines[i]) && !/^\s*[-*]\s+/.test(lines[i]) &&
+          !/^\s*\d+\.\s+/.test(lines[i]) && !/^\s*>/.test(lines[i]) &&
+          !/^\s*---\s*$/.test(lines[i]) && !lines[i].includes("|")){
+      buf.push(lines[i]); i++;
+    }
+    out.push("<p>"+inline(buf.join(" "))+"</p>");
+  }
+  return out.join("\n");
+}
+
+function buildTOC(){
+  tocEl.innerHTML = "";
+  const heads = docEl.querySelectorAll("h2");
+  if(!heads.length){ tocEl.innerHTML = '<span style="font-size:13px;color:var(--ink-faint)">—</span>'; return; }
+  heads.forEach((hh, idx) => {
+    const id = "sec-"+idx;
+    hh.id = id;
+    const a = document.createElement("a");
+    a.href = "#"+id;
+    a.textContent = hh.textContent;
+    tocEl.appendChild(a);
+  });
+}
+
+async function loadTab(idx){
+  document.querySelectorAll("#tabbar button").forEach((b,k)=>b.classList.toggle("active", k===idx));
+  docEl.innerHTML = '<div class="loading">Loading…</div>';
+  try{
+    const res = await fetch(TABS[idx].file, {cache:"no-store"});
+    if(!res.ok) throw new Error(res.status);
+    const md = await res.text();
+    docEl.innerHTML = mdToHtml(md);
+    buildTOC();
+    window.scrollTo({top:0, behavior:"smooth"});
+  }catch(err){
+    docEl.innerHTML = `
+      <div class="notice">
+        <h3>Couldn't load the document</h3>
+        <p>The page tried to read <code>${TABS[idx].file}</code> but the browser blocked it
+        (this happens when the file is opened directly with <code>file://</code>).</p>
+        <p><strong>Run a tiny local server from this folder, then reload:</strong></p>
+        <pre><code>python -m http.server 8000</code></pre>
+        <p>Then open <a href="http://localhost:8000/">http://localhost:8000/</a>.
+        Any static server works; this is only needed because browsers restrict local file reads.</p>
+      </div>`;
+    tocEl.innerHTML = "";
+  }
+}
+
+document.getElementById("tabbar").addEventListener("click", e=>{
+  const btn = e.target.closest("button");
+  if(!btn) return;
+  loadTab(Number(btn.dataset.tab));
+});
+
+loadTab(0);
+
+/* =============================================================
+   COOKIE CONSENT  (GDPR / ePrivacy opt-in model)
+   - No non-essential script loads until the user opts in.
+   - Equal-prominence Accept / Reject on the first layer.
+   - Granular categories, withdrawable any time, consent logged.
+   ============================================================= */
+
+/* ---- CONSENT CONFIG ----
+   USE_GOOGLE_CMP:
+     false → use the built-in banner (default; good until AdSense is approved).
+     true  → hand consent to Google's certified CMP ("Privacy & messaging" /
+             Funding Choices). The built-in banner is then fully disabled so users
+             never see two prompts. Before flipping to true you must:
+               1) paste the Funding Choices snippet in the <head> (marked spot), and
+               2) set ADS_CLIENT below.
+             Google's CMP then shows the TCF v2.2 banner to EEA/UK/CH users and gates
+             AdSense for you. */
+const USE_GOOGLE_CMP  = false;
+const CONSENT_KEY     = "cc_consent_v1";
+const CONSENT_VERSION = 1;            // bump to re-prompt everyone after a policy change
+const ADS_CLIENT      = "";           // e.g. "ca-pub-XXXXXXXXXXXXXXXX" (your AdSense Publisher ID)
+const ANALYTICS_ID    = "";           // e.g. "G-XXXXXXXXXX" (GA4) — optional
+
+const $ = id => document.getElementById(id);
+
+function readConsent(){
+  try {
+    const c = JSON.parse(localStorage.getItem(CONSENT_KEY));
+    if (!c || c.version !== CONSENT_VERSION) return null;
+    return c;
+  } catch { return null; }
+}
+
+function saveConsent(analytics, ads){
+  const record = {
+    version: CONSENT_VERSION,
+    necessary: true,              // always on, cannot be refused
+    analytics: !!analytics,
+    ads: !!ads,
+    timestamp: new Date().toISOString()   // proof of when consent was given
+  };
+  localStorage.setItem(CONSENT_KEY, JSON.stringify(record));
+  applyConsent(record);
+  return record;
+}
+
+/* ---- Script loaders: fire ONLY for granted categories ---- */
+let adsLoaded = false, analyticsLoaded = false;
+
+function loadAds(){
+  if (adsLoaded || !ADS_CLIENT) return;
+  adsLoaded = true;
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + ADS_CLIENT;
+  s.crossOrigin = "anonymous";
+  document.head.appendChild(s);
+  // Then render each reserved slot by adding the <ins class="adsbygoogle"> markup
+  // inside the .ad slots and pushing (adsbygoogle = window.adsbygoogle || []).push({}).
+}
+
+function loadAnalytics(){
+  if (analyticsLoaded || !ANALYTICS_ID) return;
+  analyticsLoaded = true;
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + ANALYTICS_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag("js", new Date());
+  gtag("config", ANALYTICS_ID, { anonymize_ip: true });
+}
+
+function applyConsent(c){
+  if (c.ads)       loadAds();
+  if (c.analytics) loadAnalytics();
+  // If a Google-certified CMP (Funding Choices) is added later, also forward the signal:
+  // if (window.gtag) gtag('consent','update',{
+  //   ad_storage: c.ads ? 'granted':'denied',
+  //   analytics_storage: c.analytics ? 'granted':'denied'
+  // });
+}
+
+/* ---- UI wiring ---- */
+const banner  = $("ccBanner");
+const overlay = $("ccOverlay");
+
+function showBanner(){ banner.classList.remove("hidden"); }
+function hideBanner(){ banner.classList.add("hidden"); }
+function openPrefs(){
+  const c = readConsent();
+  $("catAnalytics").checked = c ? c.analytics : false;
+  $("catAds").checked       = c ? c.ads       : false;
+  overlay.classList.remove("hidden");
+}
+function closePrefs(){ overlay.classList.add("hidden"); }
+
+$("ccAccept").addEventListener("click", () => { saveConsent(true, true);  hideBanner(); });
+$("ccReject").addEventListener("click", () => { saveConsent(false,false); hideBanner(); });
+$("ccCustomize").addEventListener("click", openPrefs);
+
+$("ccModalSave").addEventListener("click", () => {
+  saveConsent($("catAnalytics").checked, $("catAds").checked);
+  closePrefs(); hideBanner();
+});
+$("ccModalReject").addEventListener("click", () => {
+  saveConsent(false, false); closePrefs(); hideBanner();
+});
+
+$("ccSettings").addEventListener("click", openPrefs);
+
+// "Do Not Sell or Share" (CCPA/CPRA): turn off advertising immediately.
+$("ccDoNotSell").addEventListener("click", () => {
+  const c = readConsent() || {};
+  saveConsent(c.analytics || false, false);
+  alert("Advertising/sharing has been turned off for this browser.");
+});
+
+// Close modal by clicking the dark overlay (but not the modal itself).
+overlay.addEventListener("click", e => { if (e.target === overlay) closePrefs(); });
+
+/* ---- Disable the built-in banner when Google's CMP is in charge ---- */
+function disableBuiltInConsent(){
+  // Hide the built-in banner + modal entirely; Google's CMP provides the UI.
+  hideBanner(); closePrefs();
+  banner.remove(); overlay.remove();
+  // Re-point the footer "Cookie settings" at Google's CMP, and let its
+  // "Do Not Sell" message handle the US/California experience.
+  const openGoogleCmp = () => {
+    if (window.googlefc && googlefc.showRevocationMessage) {
+      googlefc.showRevocationMessage();          // Funding Choices: reopen the consent UI
+    } else {
+      alert("Privacy settings are managed by our consent provider. If the banner did not appear, please disable any ad blocker and reload.");
+    }
+  };
+  $("ccSettings").addEventListener("click", openGoogleCmp);
+  $("ccDoNotSell").addEventListener("click", openGoogleCmp);
+}
+
+/* ---- On load: honor Global Privacy Control, then show banner or apply saved consent ---- */
+(function initConsent(){
+  $("yr").textContent = new Date().getFullYear();
+
+  if (USE_GOOGLE_CMP){
+    // Google's certified CMP (pasted in <head>) handles consent + TCF v2.2 and
+    // gates AdSense itself. We only stand down the built-in UI here.
+    disableBuiltInConsent();
+    // Optionally mirror consent to gtag if you also run GA4 behind the CMP:
+    // window.googlefc = window.googlefc || {}; googlefc.callbackQueue = googlefc.callbackQueue || [];
+    return;
+  }
+
+  const gpc = navigator.globalPrivacyControl === true;  // browser "do not sell/share" signal
+  const existing = readConsent();
+  if (existing){
+    // Respect GPC by forcing ads off even if previously allowed.
+    if (gpc && existing.ads){ saveConsent(existing.analytics, false); }
+    else { applyConsent(existing); }
+    return;
+  }
+  // No prior choice: nothing non-essential loads yet. Show the banner.
+  // If GPC is present, pre-set advertising to denied in the modal defaults (already false).
+  showBanner();
+})();
+</script>
+</body>
+</html>
