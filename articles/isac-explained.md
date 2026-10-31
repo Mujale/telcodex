@@ -2,8 +2,7 @@
 
 Integrated Sensing and Communication (ISAC) is one of the defining ideas of 6G: letting a mobile
 network **sense the physical world** at the same time as it carries data, using the same radios
-and spectrum. This page explains the concept, how 3GPP structures it, and why it matters, in
-plain language.
+and spectrum. This page explains the concept, how 3GPP structures it, and why it matters.
 
 > **Status:** ISAC has normative service requirements (Stage 1) and architecture (Stage 2) work
 > in 3GPP, with the first deployments focused on network-based sensing. It is a central 6G theme.
@@ -76,6 +75,3 @@ issues — see the **ISAC deep-dive page**, which includes a downloadable PDF.
 
 - **TS 22.137** — ISAC service requirements (Stage 1).
 - **TS 23.137** — ISAC architecture (Stage 2), including the Sensing Function.
-
-*Source: 3GPP study items and specification corpus, paraphrased. No non-3GPP or proprietary
-content.*

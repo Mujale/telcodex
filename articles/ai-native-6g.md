@@ -1,8 +1,7 @@
 # AI-Native 6G — What Does It Mean?
 
 "AI-native" is one of the phrases you hear most about 6G. But what does it actually mean, and how
-is it different from the AI already in 5G? This page explains the shift in plain language, based
-on 3GPP's study direction.
+is it different from the AI already in 5G? This page explains the shift.
 
 > **Status:** AI-native design is a 6G study theme in 3GPP. In 5G, AI/ML is already used in
 > specific places; 6G studies making it a built-in design principle. The 6G specifics are study
@@ -60,6 +59,3 @@ performance across very different scenarios, and run with less human interventio
 
 AI in 5G is a capability you call on; AI-native 6G aims to make intelligence part of how the
 network is built and run — across the radio, the core, and operations.
-
-*Source: 3GPP study items and specification corpus, paraphrased. No non-3GPP or proprietary
-content.*

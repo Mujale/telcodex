@@ -1,8 +1,7 @@
 # 6G Timeline — When Is 6G Coming?
 
 "When is 6G coming?" has a clearer answer than it used to. In 2026, 3GPP approved the schedule
-for the first 6G specifications. This page lays out the timeline in plain language and explains
-what each milestone means.
+for the first 6G specifications.
 
 > **Status:** The Release 21 timeline was approved by 3GPP in June 2026. Dates are 3GPP's planned
 > schedule; commercial deployment follows the specifications by a few years.
@@ -64,5 +63,3 @@ so the transition is an evolution rather than a clean break.
 
 Study now (Release 20), first specifications by late 2028 / early 2029 (Release 21), commercial
 6G around 2030.
-
-*Source: 3GPP material, paraphrased. No non-3GPP or proprietary content.*

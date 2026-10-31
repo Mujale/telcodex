@@ -3,7 +3,7 @@
 Sub-THz spectrum — very roughly the **100–300 GHz** range — is one of the most talked-about
 frontiers for 6G. This page explains what it is, why 3GPP is studying it, the hard physics that
 make it difficult, where it might be used, and how it relates to the nearer-term "FR3" upper
-mid-band. Everything here is kept to 3GPP's documented study scope, in plain language.
+mid-band.
 
 > **Status:** Sub-THz above about 71 GHz is still **pre-normative** in 3GPP. There is no
 > approved 6G operating band or specification for it yet — it lives in feasibility studies and
@@ -89,6 +89,3 @@ It is easy to confuse these, but they are different horizons:
 Sub-THz is a genuine 6G opportunity for enormous short-range capacity, but it is early-stage in
 3GPP and hard to engineer. Expect the upper mid-band (FR3) to arrive first, with sub-THz following
 as the standards, spectrum, and hardware mature.
-
-*Source: 3GPP study items and specification corpus, paraphrased. No non-3GPP or proprietary
-content.*

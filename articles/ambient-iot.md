@@ -3,8 +3,7 @@
 Ambient IoT (A-IoT), sometimes called zero-energy IoT, is one of the most striking ideas feeding
 into 6G: tiny devices that run with **no battery at all**, powered entirely by energy harvested
 from their surroundings. This page explains what they are, how they work, the network
-architecture 3GPP has defined, and where they fit. It is written in plain language and kept to
-3GPP's documented scope.
+architecture 3GPP has defined, and where they fit.
 
 > **Status:** Ambient IoT reached its **first normative release in 5G-Advanced (Release 19)**,
 > building on a Release 18 study. Release 20 continues the work, and the concept is a central
@@ -88,6 +87,3 @@ Typical use cases span logistics, retail, industry, agriculture, healthcare, and
 Ambient IoT removes the battery — the biggest barrier to deploying sensors at enormous scale —
 by harvesting energy and using backscatter to communicate. First standardised in 5G-Advanced, it
 is a foundational building block for the extreme device density that 6G targets.
-
-*Source: 3GPP study items and specification corpus, paraphrased. No non-3GPP or proprietary
-content.*

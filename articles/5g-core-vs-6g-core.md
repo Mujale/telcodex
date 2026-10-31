@@ -2,7 +2,7 @@
 
 The core network is the "brain" of a mobile system — it handles who can connect, how sessions
 are set up, how data is routed, and what policies apply. This page compares the well-defined
-**5G Core (5GC)** with the **6G core** that 3GPP is now beginning to study, in plain language.
+**5G Core (5GC)** with the **6G core** that 3GPP is now beginning to study.
 
 > **Status:** The 5G Core is fully specified. The 6G core is **not** — Release 20 holds the
 > first 6G study items, and the first normative 6G core specifications are expected in
@@ -89,6 +89,3 @@ digital model of the network for prediction and optimisation.
 The 5G Core is a mature, service-based design with a clear set of functions. The 6G core is still
 being imagined in study items, but the direction is clear: more AI-native, more composable, with
 sensing, energy, non-terrestrial access, and digital twins built in rather than added on.
-
-*Source: 3GPP study items and specification corpus, paraphrased. No non-3GPP or proprietary
-content.*
