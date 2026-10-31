@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Policy · Telcodex.io — The 6G Standards &amp; Architecture Codex</title>
+<meta name="description" content="Privacy Policy, Cookie Policy and Terms and Conditions for Telcodex.io — the 6G Standards & Architecture Codex." />
+<meta name="robots" content="index, follow" />
+<style>
+  :root{
+    --bg:#f7f8fb;--surface:#fff;--ink:#1c2433;--ink-soft:#4b5668;--ink-faint:#8a93a6;
+    --line:#e4e8f0;--brand:#2563eb;--brand-3:#7c3aed;--accent-bg:#eef3ff;--code-bg:#eef1f6;
+    --maxw:820px;--pad:clamp(16px,3vw,48px);
+    --sans:Arial,Helvetica,"Helvetica Neue","Segoe UI",system-ui,sans-serif;
+    --mono:"SFMono-Regular",Consolas,Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root{--bg:#0b0f1a;--surface:#121a2b;--ink:#e8edf5;--ink-soft:#aab6c9;--ink-faint:#6f7c93;--line:#223049;--accent-bg:#17233c;--code-bg:#182135;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:var(--brand);}
+  .topbar{background:var(--surface);border-bottom:1px solid var(--line);}
+  .topbar .inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);display:flex;justify-content:flex-end;}
+  .topbar nav{display:flex;gap:4px;flex-wrap:wrap;}
+  .topbar nav a{color:var(--ink);font-size:12.5px;font-weight:600;letter-spacing:.2px;padding:9px 12px;line-height:1;text-decoration:none;}
+  .topbar nav a:hover{color:var(--brand);}
+  @media (max-width:620px){.topbar .inner{justify-content:center;}}
+  header.title{background:linear-gradient(120deg,var(--brand) 0%,var(--brand-3) 100%);color:#fff;}
+  header.title .inner{max-width:var(--maxw);margin:0 auto;padding:16px var(--pad);display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:space-between;}
+  header.title h1{font-size:17px;font-weight:700;letter-spacing:.2px;}
+  header.title .back{color:rgba(255,255,255,.85);font-size:12.5px;text-decoration:none;}
+  header.title .back:hover{color:#fff;}
+  /* sub-nav between the three policies */
+  .subnav{max-width:var(--maxw);margin:0 auto;padding:14px var(--pad) 0;display:flex;gap:8px;flex-wrap:wrap;}
+  .subnav a{font-size:13px;font-weight:600;color:var(--ink-soft);padding:7px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:var(--surface);}
+  .subnav a:hover{color:var(--brand);border-color:var(--brand);}
+  .subnav a.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+  main{max-width:var(--maxw);margin:0 auto;padding:22px var(--pad) 70px;}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(22px,4vw,40px);}
+  .card h2{font-size:22px;font-weight:800;margin:0 0 6px;letter-spacing:-.3px;}
+  .card h3{font-size:16px;font-weight:700;margin:22px 0 8px;color:var(--ink);}
+  .card p,.card li{color:var(--ink-soft);font-size:15px;margin:0 0 12px;}
+  .card ul{padding-left:22px;}
+  .card hr{border:none;border-top:1px solid var(--line);margin:18px 0;}
+  .card code{font-family:var(--mono);background:var(--code-bg);padding:2px 6px;border-radius:5px;font-size:.9em;color:var(--brand-3);}
+  .loading{color:var(--ink-faint);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <nav>
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header class="title">
+  <div class="inner">
+    <h1 id="ptitle">Policy</h1>
+    <a class="back" href="/">← Back to the Codex</a>
+  </div>
+</header>
+
+<div class="subnav" id="subnav">
+  <a href="policy.html?doc=privacy">Privacy Policy</a>
+  <a href="policy.html?doc=cookie">Cookie Policy</a>
+  <a href="policy.html?doc=terms">Terms &amp; Conditions</a>
+</div>
+
+<main>
+  <article class="card" id="doc"><p class="loading">Loading…</p></article>
+</main>
+
+<script>
+const DOCS = {
+  privacy: { file: "privacypolicy.md",        title: "Privacy Policy" },
+  cookie:  { file: "cookiepolicy.md",          title: "Cookie Policy" },
+  terms:   { file: "termsandconditions.md",    title: "Terms & Conditions" }
+};
+
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function inline(s){
+  s = esc(s);
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  s = s.replace(/`([^`]+)`/g,'<code>$1</code>');
+  s = s.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  s = s.replace(/\*([^*]+)\*/g,'<em>$1</em>');
+  // bare URLs → links
+  s = s.replace(/(^|[\s(])(https?:\/\/[^\s)]+)/g,'$1<a href="$2" target="_blank" rel="noopener">$2</a>');
+  return s;
+}
+function mdToHtml(md){
+  const lines = md.replace(/\r\n/g,"\n").split("\n");
+  let out=[], i=0;
+  while(i<lines.length){
+    let line=lines[i];
+    if(/^\s*$/.test(line)){i++;continue;}
+    if(/^\s*\\?---+\s*$/.test(line.replace(/\\/g,""))){out.push("<hr/>");i++;continue;}
+    const h=line.match(/^(#{1,6})\s+(.*)$/);
+    if(h){const lv=h[1].length;out.push(`<h${lv}>${inline(h[2].replace(/\\/g,""))}</h${lv}>`);i++;continue;}
+    if(/^\s*[-*]\s+/.test(line)){
+      let buf=[];
+      while(i<lines.length&&/^\s*[-*]\s+/.test(lines[i])){buf.push("<li>"+inline(lines[i].replace(/^\s*[-*]\s+/,"").replace(/\\/g,""))+"</li>");i++;}
+      out.push("<ul>"+buf.join("")+"</ul>");continue;
+    }
+    let buf=[line];i++;
+    while(i<lines.length&&!/^\s*$/.test(lines[i])&&!/^(#{1,6})\s/.test(lines[i])&&!/^\s*[-*]\s+/.test(lines[i])&&!/^\s*\\?---+\s*$/.test(lines[i].replace(/\\/g,""))){buf.push(lines[i]);i++;}
+    out.push("<p>"+inline(buf.join(" ").replace(/\\(.)/g,"$1"))+"</p>");
+  }
+  return out.join("\n");
+}
+
+async function load(){
+  const key = (new URLSearchParams(location.search).get("doc")||"privacy").toLowerCase();
+  const d = DOCS[key] || DOCS.privacy;
+  document.title = d.title + " · Telcodex.io";
+  document.getElementById("ptitle").textContent = d.title;
+  // mark active sub-nav
+  document.querySelectorAll("#subnav a").forEach(a=>{
+    a.classList.toggle("active", a.getAttribute("href").endsWith("doc="+(DOCS[key]?key:"privacy")));
+  });
+  const el = document.getElementById("doc");
+  try{
+    const res = await fetch(d.file,{cache:"no-store"});
+    if(!res.ok) throw new Error(res.status);
+    el.innerHTML = mdToHtml(await res.text());
+  }catch(err){
+    el.innerHTML = '<p class="loading">Couldn\'t load this policy. If you opened the file directly, run a local server (e.g. <code>python -m http.server 8000</code>) and reload.</p>';
+  }
+}
+load();
+</script>
+</body>
+</html>

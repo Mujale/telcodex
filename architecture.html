@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>6G Network Architecture in 3GPP — RAN &amp; Core Components | Telcodex.io</title>
+<meta name="description" content="The 6G network architecture components studied in 3GPP: the gNB CU/DU split, service-based core functions (AMF, SMF, UPF, NWDAF, SenF) and new 6G concepts." />
+<meta name="keywords" content="6G architecture, 3GPP, gNB, CU DU split, service-based architecture, AMF, SMF, UPF, NWDAF, SenF, network digital twin" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://telcodex.io/architecture.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Telcodex.io" />
+<meta property="og:title" content="6G Network Architecture in 3GPP" />
+<meta property="og:description" content="The gNB CU/DU split, the service-based core, and the new 6G concepts under study." />
+<meta property="og:url" content="https://telcodex.io/architecture.html" />
+<meta name="twitter:card" content="summary" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"6G Network Architecture in 3GPP","description":"The 6G network architecture components studied in 3GPP: the gNB CU/DU split, service-based core functions and new 6G concepts.","author":{"@type":"Organization","name":"Telcodex.io"},"publisher":{"@type":"Organization","name":"Telcodex.io"},"mainEntityOfPage":"https://telcodex.io/architecture.html","inLanguage":"en"}
+</script>
+<!-- STEP 1: AdSense verification tag — paste here when approved -->
+<!-- STEP 2: Google Funding Choices (CMP) snippet — paste here -->
+<link rel="stylesheet" href="assets/page.css" />
+</head>
+<body>
+<div class="topbar"><div class="inner"><nav><a href="/">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></div>
+<header class="site"><div class="inner">
+  <a class="brandlink" href="/"><div class="brand"><span class="logo">6G</span><div><h1>6G Network Evolution</h1><div class="sub">The 6G Standards &amp; Architecture Codex</div></div></div></a>
+</div></header>
+<nav class="topics"><div class="inner">
+  <a href="/" data-key="home">Home</a>
+  <a href="standardization.html" data-key="standardization">Standardization &amp; Timeline</a>
+  <a href="features.html" data-key="features">Features</a>
+  <a href="architecture.html" data-key="architecture">Network Architecture</a>
+  <a href="ran.html" data-key="ran">RAN</a>
+  <a href="core.html" data-key="core">Core</a>
+  <a href="management.html" data-key="management">Network Management</a>
+</div></nav>
+
+<div class="layout">
+  <main>
+    <article class="doc" id="doc">
+<!-- prerendered -->
+<h1>6G Network Architecture — Components Studied in 3GPP</h1>
+<p>Explore the building blocks of the 6G network — the components 3GPP has <strong>studied or is currently studying</strong>, from the radio access network to the service-based core.</p>
+<hr/>
+<h2 id="sec-0">Architecture overview</h2>
+<p><img alt="6G system architecture — RAN, service-based core, and 6G concepts under study" src="images/6g-system-architecture.svg" /></p>
+<p><em>Figure 1 — The service-based architecture (TS 23.501) with the network functions carried forward toward 6G, the new/under-study functions (NWDAF, SenF, RIS), and the 6G concept blocks (AI-native NF, Network Digital Twin, compute–network integration, NTN).</em></p>
+<hr/>
+<h2 id="sec-1">Part 1 — RAN side</h2>
+<p><img alt="gNB CU/DU/RU split evolving for 6G" src="images/6g-ran-split.svg" /></p>
+<p><em>Figure 2 — The gNB CU/DU/RU functional split (TS 38.401), the baseline being evolved for 6G.</em></p>
+<h3>gNB (CU / DU / RU split)</h3>
+<p>The radio access node, already functionally split in 5G and carried forward for 6G. The <strong>gNB-CU</strong> (Central Unit) hosts RRC, SDAP, and PDCP and connects to the core over NG; it is further divided into <strong>CU-CP</strong> (control plane) and <strong>CU-UP</strong> (user plane) over the <strong>E1</strong> interface. The <strong>gNB-DU</strong> (Distributed Unit) hosts RLC, MAC, and higher PHY, connected to the CU over the <strong>F1</strong> interface. A lower-layer (7-2x) split to the <strong>RU</strong> is an implementation option. For 6G, the sub-THz and AI-native radio studies (TR 38.914) consider further disaggregation and how the access node connects to an AI-aware core. <em>References: TS 38.401, TS 38.300; F1 (TS 38.470/473); E1 (TS 38.460/463).</em> <strong>Status: specified in Rel-15+, evolving.</strong></p>
+<h3>NTN payload / gateway</h3>
+<p>Extends the gNB to satellites and high-altitude platforms. The <strong>NTN-Payload</strong> provides the NR radio link on the satellite/HAPS; the <strong>NTN-Gateway</strong> terminates the feeder link and connects to the core via the standard NG interface; an <strong>NTN Control Function</strong> manages ephemeris and timing compensation. This Rel-17/18 model is the baseline being evolved for 6G, where terrestrial/non-terrestrial integration is a primary study topic in SA2 and RAN3. <em>References: TS 38.300 §16.14, TS 38.101-5, TS 38.108.</em> <strong>Status: specified Rel-17/18; 6G study.</strong></p>
+<h3>RIS — Reconfigurable Intelligent Surface *</h3>
+<p>A surface whose electromagnetic response can be tuned to steer incoming radio waves toward a chosen direction, redirecting signals without any active transmit chain. It is of interest for filling coverage gaps, especially at sub-THz frequencies where propagation loss is high. An open question in the study is whether a RIS needs its own standardised interface to the gNB-CU/DU or can be treated purely as a deployment-level element; the network-controlled repeater (TS 38.106) is an earlier related concept. RIS appears among the candidate 6G technologies examined in TR 38.914. <em>References: TR 38.914 (study), TS 38.106 (repeater precursor).</em> <strong>Status: study / TR stage.</strong></p>
+<hr/>
+<h2 id="sec-2">Part 2 — Service-based core network functions</h2>
+<p>All 5G Core functions are defined with service-based interfaces in TS 23.501 / TS 23.502 and are being evolved toward 6G.</p>
+<h3>AMF — Access and Mobility Management Function</h3>
+<p>The single entry point for UE access: it terminates NAS signalling (registration, authentication, mobility), acts as the security anchor, manages idle-mode mobility and paging, and holds UE context. Interfaces include N1 (UE), N2 (RAN), and links to SMF, UDM, AUSF, and PCF. The 6G direction keeps the AMF as mobility anchor while deepening integration with NWDAF for AI-driven mobility prediction and with the Sensing Function for location-aided access. <em>References: TS 23.501 §6.2.6, TS 29.518.</em> <strong>Status: Rel-15+, evolving.</strong></p>
+<h3>SMF — Session Management Function</h3>
+<p>Manages the full PDU session lifecycle (establishment, modification, release), IP address allocation, traffic-routing control, QoS enforcement toward the UPF (over N4/PFCP), and charging triggers. The 6G study direction is compute-network integration, where session management co-schedules data-plane and compute resources; edge computing (TS 23.548, via the EASDF) is the precursor. <em>References: TS 23.501 §6.2.7, TS 29.502, TS 29.244.</em> <strong>Status: Rel-15+, evolving.</strong></p>
+<h3>UPF — User Plane Function</h3>
+<p>The sole user-plane function: PDU session anchor, IP forwarding, packet inspection, QoS marking and enforcement from SMF rules (PFCP), and local break-out for edge computing. Interfaces: N3 (RAN), N9 (inter-UPF), N4 (SMF), N6 (data network). It is the primary target for the 6G "compute-aware" data-plane study — routing to co-located compute without an extra application hop. <em>References: TS 23.501 §6.2.8, TS 29.244.</em> <strong>Status: Rel-15+, evolving.</strong></p>
+<h3>NEF — Network Exposure Function</h3>
+<p>The secure gateway between network internals and external Application Functions: it exposes northbound APIs (analytics, QoS, location, events) and enforces the trust boundary. In the 6G context it gains prominence as the exposure point for sensing-as-a-service and AI/ML model inference; TS 23.137 routes sensing results to external AFs via the NEF. <em>References: TS 23.501 §6.2.11, TS 29.522.</em> <strong>Status: Rel-15+, evolving.</strong></p>
+<h3>PCF — Policy Control Function</h3>
+<p>The centralised policy function: session QoS policy (PCC rules to SMF), access/mobility policy (to AMF), and UE policy (URSP). It uses the UDR for policy data and NWDAF analytics for decisions. The 6G direction is AI-native policy, where rules are generated or adjusted from real-time analytics rather than pre-provisioned (the NWDAF→PCF loop is already standardised). <em>References: TS 23.501 §6.2.13, TS 23.503.</em> <strong>Status: Rel-15+, evolving.</strong></p>
+<h3>UDM — Unified Data Management</h3>
+<p>The subscriber data management layer: authentication credential generation (with AUSF), subscription data management consumed by AMF/SMF/PCF, and UE context registration (which AMF/SMF serves a UE). <em>References: TS 23.501 §6.2.14, TS 29.503.</em> <strong>Status: Rel-15+.</strong></p>
+<h3>UDR — Unified Data Repository</h3>
+<p>The converged data store underlying UDM, PCF, and NEF over the Nudr interface. It holds subscription, policy, application, and structured data, separating data storage from the data logic in UDM/PCF. <em>References: TS 23.501 §6.2.15, TS 29.504/29.505.</em> <strong>Status: Rel-15+.</strong></p>
+<h3>NWDAF — Network Data Analytics Function (AI/ML engine)</h3>
+<p>The AI/ML intelligence hub of the core. Its <strong>AnLF</strong> (Analytics Logical Function) performs inference and produces statistics/predictions for NF and OAM consumers; its <strong>MTLF</strong> (Model Training Logical Function) trains and distributes ML models, including to UEs and (via NEF) to external AFs. It supports hierarchical multi-NWDAF deployments and draws data from UDM, PCF, AMF, SMF, OAM, and the ADRF/DCCF. It is a central pillar of the 6G AI-native architecture, with SA2 studying it as the system-wide AI/ML lifecycle function. <em>References: TS 23.288.</em> <strong>Status: Rel-15 inception, MTLF Rel-17/18, evolving.</strong></p>
+<h3>SenF — Sensing Function * (new in Rel-20, ISAC)</h3>
+<p>A core function introduced for Integrated Sensing and Communication. It can be split into <strong>SenF-C</strong>, which handles the control side (running sensing operations, authorization, picking and discovering the gNBs involved, and provisioning parameters), and <strong>SenF-P</strong>, which collects the raw measurements returned by one or more gNBs and turns them into sensing results. In this model the gNB plays the role of <strong>Sensing Entity</strong>, reusing NR transmissions for radar-like measurement. Results are delivered to AFs either directly or through the NEF; the Rel-20 work centres on detecting and tracking airborne objects such as drones. <em>References: TS 23.137, TS 22.137.</em> <strong>Status: new NF, Rel-20.</strong></p>
+<hr/>
+<h2 id="sec-3">Part 3 — New 6G architecture concepts (under study / early spec)</h2>
+<h3>AI-Native Network Function *</h3>
+<p>NFs with embedded ML inference (not merely consuming external NWDAF analytics) that can adapt their behaviour from feedback loops and register their AI capabilities in the NRF for discovery. The MTLF already enables model distribution to any NF; the SA2 6G study explores whether the NF/AI-function distinction should collapse. TS 28.105 defines the OAM-side management of AI/ML functions. <em>References: TS 23.288, TS 28.105.</em> <strong>Status: Rel-18+ study.</strong></p>
+<h3>Network Digital Twin (NDT) *</h3>
+<p>A digital stand-in for part or all of the network, kept in step with the live system so that changes can be tried out against it rather than on production. Operators can rehearse configuration changes, study how faults would propagate, and trial new services on the twin before rollout; the twin may be realised through simulation, emulation, AI modelling, or a mix, and it captures both the network layout and its performance behaviour. For 6G the NDT is positioned as a near-real-time companion to management and control, feeding closed-loop recommendations and drawing on NWDAF data and intent-based management (TS 28.312). <em>References: TS 28.561.</em> <strong>Status: Rel-18+, normative management spec.</strong></p>
+<h3>Compute–Network Integration *</h3>
+<p>Co-design of computation scheduling and network session management. In 5G, SMF + UPF + EASDF (TS 23.548) already provide compute-aware routing to edge nodes. The 6G study explores a convergence function (or SMF/UPF extensions) that exposes compute-resource availability as a first-class QoS parameter and schedules sessions with awareness of edge CPU/GPU — relevant to XR, metaverse, and split rendering. <em>References: TS 23.548, TS 23.558.</em> <strong>Status: Rel-17+, 6G study.</strong></p>
+<h3>NTN Integration (6G perspective) *</h3>
+<p>Beyond the Rel-17/18 NTN baseline, 6G studies treat non-terrestrial access as an integral RAN layer: direct-to-device satellite access, multi-orbit (GEO/MEO/LEO) coexistence, regenerative payloads hosting a full gNB on orbit, and improved NTN-to-terrestrial handover (including AI-assisted orbit prediction). <em>References: TS 38.300 §16.14, TR 38.914.</em> <strong>Status: specified Rel-17/18; 6G study topic.</strong></p>
+<hr/>
+<h2 id="sec-4">Reference table</h2>
+<div class="table-wrap"><table><thead><tr><th>Component</th><th>Role</th><th>3GPP reference</th><th>Status</th></tr></thead><tbody><tr><td>gNB (CU/DU/RU)</td><td>RAN node; CU-CP/CU-UP/DU split over F1/E1</td><td>TS 38.401, 38.300</td><td>Rel-15+, evolving</td></tr><tr><td>NTN payload/gateway</td><td>Satellite/HAPS radio + ground relay to core</td><td>TS 38.300 §16.14</td><td>Rel-17/18; 6G study</td></tr><tr><td>RIS *</td><td>Passive reflective surface; channel manipulation</td><td>TR 38.914</td><td>Study</td></tr><tr><td>AMF</td><td>UE registration, NAS, mobility, security anchor</td><td>TS 23.501 §6.2.6</td><td>Rel-15+</td></tr><tr><td>SMF</td><td>PDU session management, QoS, UPF control</td><td>TS 23.501 §6.2.7</td><td>Rel-15+</td></tr><tr><td>UPF</td><td>User-plane forwarding, break-out, detection</td><td>TS 23.501 §6.2.8</td><td>Rel-15+</td></tr><tr><td>NEF</td><td>External API exposure, sensing/AI exposure</td><td>TS 23.501 §6.2.11</td><td>Rel-15+</td></tr><tr><td>PCF</td><td>Policy control; AI-driven rules</td><td>TS 23.501 §6.2.13</td><td>Rel-15+</td></tr><tr><td>UDM</td><td>Subscription data, credentials, UE context</td><td>TS 23.501 §6.2.14</td><td>Rel-15+</td></tr><tr><td>UDR</td><td>Converged data store for UDM/PCF/NEF</td><td>TS 23.501 §6.2.15</td><td>Rel-15+</td></tr><tr><td>NWDAF (AnLF+MTLF)</td><td>AI/ML analytics and model training/distribution</td><td>TS 23.288</td><td>Rel-15+, evolving</td></tr><tr><td>SenF (SenF-C/SenF-P) *</td><td>New ISAC core NF: sensing control/processing</td><td>TS 23.137, TS 22.137</td><td>Rel-20 (new NF)</td></tr><tr><td>AI-Native NF *</td><td>NFs with embedded ML inference</td><td>TS 23.288, TS 28.105</td><td>Rel-18+ study</td></tr><tr><td>Network Digital Twin *</td><td>Software replica for simulation/automation</td><td>TS 28.561</td><td>Rel-18+</td></tr><tr><td>Compute–Network Integration *</td><td>Co-schedule data plane + compute</td><td>TS 23.548, TS 23.558</td><td>Rel-17+; 6G study</td></tr><tr><td>NTN Integration *</td><td>Integral non-terrestrial access layer</td><td>TS 38.300, TR 38.914</td><td>Rel-17/18; 6G study</td></tr></tbody></table></div>
+<hr/>
+<div class="related"><h4>Related topics</h4><div class="cards"><a href="standardization.html"><strong>Standardization & Timeline</strong><span>Release 20 vs 21 and the approved 6G freeze dates.</span></a><a href="features.html"><strong>6G Features</strong><span>Sub-THz, AI-native radio, ISAC, ambient IoT and more.</span></a><a href="ran.html"><strong>6G RAN</strong><span>The radio access network: spectrum, air interface, MIMO.</span></a></div></div>
+</article>
+    <div class="ad ad-inline"><span class="ad-label">Advertisement</span></div>
+  </main>
+  <aside>
+    <div class="side-card"><h4>On this page</h4><nav class="toc" id="toc"><a href="#sec-0">Architecture overview</a><a href="#sec-1">Part 1 — RAN side</a><a href="#sec-2">Part 2 — Service-based core network functions</a><a href="#sec-3">Part 3 — New 6G architecture concepts (under study / early spec)</a><a href="#sec-4">Reference table</a></nav></div>
+    <div class="ad rail"><span class="ad-label">Advertisement</span></div>
+  </aside>
+</div>
+
+<footer class="site"><div class="inner">
+  <span>© <span id="yr"></span> Telcodex.io · The 6G Standards &amp; Architecture Codex.</span>
+  <nav class="flinks">
+    <a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="policy.html?doc=privacy" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="policy.html?doc=cookie" target="_blank" rel="noopener">Cookie Policy</a>
+    <a href="policy.html?doc=terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+    <button type="button" id="ccSettings">Cookie settings</button>
+    <button type="button" id="ccDoNotSell">Do Not Sell or Share My Info</button>
+  </nav>
+</div></footer>
+
+<div class="cc-banner hidden" id="ccBanner" role="dialog" aria-live="polite" aria-label="Cookie consent"><div class="cc-inner">
+  <div class="cc-text"><strong>We value your privacy</strong>We use strictly necessary cookies to make this site work. With your consent we would also use cookies for analytics and advertising (including Google AdSense). You can accept all, reject all non-essential cookies, or choose per category. See our <a href="policy.html?doc=cookie" target="_blank" rel="noopener">Cookie Policy</a>, <a href="policy.html?doc=privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="policy.html?doc=terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>.</div>
+  <div class="cc-actions"><button type="button" class="btn btn-outline" id="ccReject">Reject all</button><button type="button" class="btn btn-outline" id="ccCustomize">Customize</button><button type="button" class="btn btn-primary" id="ccAccept">Accept all</button></div>
+</div></div>
+<div class="cc-overlay hidden" id="ccOverlay" role="dialog" aria-modal="true" aria-label="Cookie preferences"><div class="cc-modal">
+  <h2>Cookie preferences</h2><p>Choose which categories of cookies you allow. Strictly necessary cookies are always on. You can change these choices any time via “Cookie settings” in the footer.</p>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Strictly necessary</h3><span class="locked">Always on</span></div><p>Required for core functionality and to remember your consent choices.</p></div>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Analytics</h3><label class="sw"><input type="checkbox" id="catAnalytics" /><span class="slider"></span></label></div><p>Anonymous, aggregated usage. Loads only if enabled.</p></div>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Advertising</h3><label class="sw"><input type="checkbox" id="catAds" /><span class="slider"></span></label></div><p>Google AdSense and personalised/limited ads. Loads only if enabled.</p></div>
+  <div class="cc-modal-actions"><button type="button" class="btn btn-outline" id="ccModalReject">Reject all</button><button type="button" class="btn btn-primary" id="ccModalSave">Save choices</button></div>
+</div></div>
+
+<script>window.PAGE={md:"6G-Network-Architecture.md",key:"architecture"};</script>
+<script src="assets/page.js"></script>
+</body>
+</html>

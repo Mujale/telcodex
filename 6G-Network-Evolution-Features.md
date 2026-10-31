@@ -1,7 +1,8 @@
 # 6G Network Evolution — Features Studied in 3GPP
 
-This document describes the 6G features that 3GPP has **studied or is currently studying**.
-Every feature below maps to a 3GPP study item (Technical Report) or to normative work (Technical Specification). 
+Discover the features shaping 6G — what 3GPP has **studied or is currently studying**. Each
+feature below maps to a 3GPP study item (Technical Report) or to normative work (Technical
+Specification).
 
 3GPP structures 6G across two releases:
 
@@ -37,6 +38,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
   downlink, high edge rates, very low BLER targets, and ~1 cm positioning. Evaluates waveform
   candidates for high-mobility / high-Doppler conditions.
 
+---
+
 ### 2. Sub-THz and Upper Mid-Band New Radio (spectrum)
 
 - **Spec / item:** under TR 38.914 / 6G radio study · work item *FS_6G_NR_spectrum* · **Study**
@@ -49,6 +52,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
   surfaces, and new antenna structures because path loss and Doppler behaviour differ from
   mmWave. FR3 is studied for >1 GHz carrier bandwidth with beam management traded between FR1
   and FR2 characteristics. Both feed the 6G band definitions.
+
+---
 
 ### 3. AI-Native Radio (AI for PHY and L2)
 
@@ -65,6 +70,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
   "AI split" placing functions at the UE, gNB-DU, gNB-CU, or core per latency/compute
   trade-off.
 
+---
+
 ### 4. Integrated Sensing and Communication (ISAC) — radio aspects
 
 - **Spec / item:** radio design under the 6G RAN study; requirements TS 22.137, architecture
@@ -79,6 +86,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
   tracking, and co-existence with communication QoS; monostatic/bistatic sensing geometries;
   interference management between sensing and data transmission.
 
+---
+
 ### 5. Reconfigurable Intelligent Surfaces (RIS)
 
 - **Spec / item:** TR 38.858 (Rel-18/19 foundation), extended for 6G · work item *FS_RIS* ·
@@ -92,6 +101,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
 - **Technical approach:** A control interface on the network side to set the surface's
   phase-shift pattern, channel-estimation methods that take the surface into account, and
   treatment of the RIS as a new network entity with management and orchestration hooks.
+
+---
 
 ### 6. Network Energy Efficiency / Green RAN
 
@@ -124,6 +135,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
   TS 22.261 → new normative requirements, covering holographic communication, tactile/haptic
   services, extreme-reliability industrial control, and space-segment connectivity.
 
+---
+
 ### 8. Mobile Metaverse Services
 
 - **Spec / item:** TS 22.156 · work item *Mobile Metaverse* (SA1) · **Normative (active in
@@ -137,6 +150,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
   visual rendering), high per-user data rates, synchronisation across UEs in a shared scene,
   split rendering (compute in the network), and privacy for avatar/identity data.
 
+---
+
 ### 9. Integrated Sensing and Communication (ISAC) — architecture
 
 - **Spec / item:** TS 22.137 (Stage 1), TS 23.137 (Stage 2), SA6 enablement TS 23.255 ·
@@ -147,6 +162,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
 - **Technical approach:** A Sensing Service Function interfacing with the core, a sensor-data
   management framework, and procedures for network-controlled versus UE-controlled sensing;
   SA6 adds application-layer sensing enablement via SEAL (TS 23.255).
+
+---
 
 ### 10. Ambient IoT / Zero-Energy Devices (Phase 2)
 
@@ -162,6 +179,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
   (TS 24.369) and radio PHY (TS 38.191 / TS 38.291); temporary identifiers (TS 23.003) and
   OAM support (TS 28.541).
 
+---
+
 ### 11. Energy Services Phase 2 (network as an energy actor)
 
 - **Spec / item:** TR 22.883 (study) → TS 22.261 (normative output) · work item
@@ -172,6 +191,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
   flexibility services, complementing the per-bit energy-efficiency targets.
 - **Technical approach:** New energy-related KPIs in TS 22.261; requirements to expose energy
   metrics to authorised third parties; per-session/application energy-footprint reporting.
+
+---
 
 ### 12. Next-Generation Core Architecture (6G System)
 
@@ -186,6 +207,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
   network slicing from soft to hard resource partitions; and study of semantic communication
   (compressing at the level of meaning, not just bits).
 
+---
+
 ### 13. Network Digital Twin (NDT)
 
 - **Spec / item:** TS 28.561 (management of network digital twins) · work item *NDT-OAM*
@@ -198,6 +221,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
 - **Technical approach:** A management data model for the twin (data sources, synchronisation
   interfaces, lifecycle); integration with the closed-control-loop framework; and analytics
   fed from the core's data analytics function.
+
+---
 
 ### 14. AI/ML Network Architecture (NWDAF evolution)
 
@@ -228,6 +253,8 @@ Each feature lists: **what it is**, **why it matters**, **the technical approach
 - **Technical approach:** A minimal, event-driven "check-in" NAS state machine (no persistent
   registration); AIoT temporary identifiers (TS 23.003); SBI data-management services
   (TS 29.369); and UDR extensions for AIoT device data (TS 29.506).
+
+---
 
 ### 16. Combined QoS Configuration and Monitoring (cross-layer end-to-end QoS)
 

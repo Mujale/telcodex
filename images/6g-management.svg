@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <style>
+      .nf   { fill:#151d30; stroke:#06b6d4; stroke-width:1.6; }
+      .newf { fill:#1a1430; stroke:#8b5cf6; stroke-width:1.8; }
+      .lbl  { fill:#e8edf5; font-size:14px; font-weight:700; text-anchor:middle; }
+      .sub  { fill:#9fb0c8; font-size:11px; text-anchor:middle; }
+      .ttl  { fill:#e8edf5; font-size:15px; font-weight:800; }
+      .ln   { stroke:#30455f; stroke-width:1.6; }
+      .lnf  { stroke:#8b5cf6; stroke-width:1.8; fill:none; }
+      .ref  { fill:#6b7a94; font-size:11px; text-anchor:middle; }
+      .zone { fill:#0e1526; stroke:#223049; stroke-width:1.3; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+  <rect width="960" height="420" fill="#0a0e1a"/>
+
+  <text class="ttl" x="40" y="34">6G Network Management — intent-driven, AI-assisted, closed-loop operation</text>
+
+  <!-- Intent layer -->
+  <rect class="newf" x="330" y="60" width="300" height="46" rx="10"/>
+  <text class="lbl" x="480" y="79">Intent-driven management</text>
+  <text class="sub" x="480" y="96">business goals → network intent · TS 28.312</text>
+
+  <!-- Closed loop ring: three stages -->
+  <rect class="nf" x="120" y="170" width="170" height="60" rx="12"/>
+  <text class="lbl" x="205" y="195">Collect &amp; analyse</text>
+  <text class="sub" x="205" y="213">measurements · analytics</text>
+
+  <rect class="nf" x="395" y="170" width="170" height="60" rx="12"/>
+  <text class="lbl" x="480" y="195">Decide</text>
+  <text class="sub" x="480" y="213">AI/ML · policies</text>
+
+  <rect class="nf" x="670" y="170" width="170" height="60" rx="12"/>
+  <text class="lbl" x="755" y="195">Act</text>
+  <text class="sub" x="755" y="213">configure · optimise</text>
+
+  <!-- loop arrows -->
+  <line class="lnf" x1="290" y1="200" x2="393" y2="200" marker-end="url(#arrow)"/>
+  <line class="lnf" x1="565" y1="200" x2="668" y2="200" marker-end="url(#arrow)"/>
+  <path class="lnf" d="M755 230 C 755 285, 205 285, 205 232" marker-end="url(#arrow)"/>
+  <text class="ref" x="480" y="300">closed control loop · TS 28.567</text>
+
+  <!-- intent to loop -->
+  <line class="ln" x1="480" y1="106" x2="480" y2="168"/>
+
+  <!-- Digital twin -->
+  <rect class="newf" x="120" y="330" width="330" height="56" rx="10"/>
+  <text class="lbl" x="285" y="353">Network Digital Twin</text>
+  <text class="sub" x="285" y="371">simulate changes before rollout · TS 28.561</text>
+
+  <!-- Energy / green management -->
+  <rect class="nf" x="510" y="330" width="330" height="56" rx="10"/>
+  <text class="lbl" x="675" y="353">Energy &amp; sustainability management</text>
+  <text class="sub" x="675" y="371">energy KPIs · savings policies · TS 28.310</text>
+
+  <line class="ln" x1="285" y1="330" x2="285" y2="232"/>
+  <line class="ln" x1="675" y1="330" x2="675" y2="232"/>
+</svg>

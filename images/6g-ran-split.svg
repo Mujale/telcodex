@@ -19,37 +19,38 @@
   <text class="sub" x="100" y="196">SBA</text>
 
   <!-- CU -->
-  <rect class="box" x="230" y="110" width="200" height="140" rx="12"/>
-  <text class="lbl" x="330" y="135">gNB-CU</text>
-  <rect class="box" x="250" y="150" width="160" height="40" rx="8"/>
-  <text class="lbl" x="330" y="175" font-size="13">CU-CP (RRC/PDCP-C)</text>
-  <rect class="box" x="250" y="198" width="160" height="40" rx="8"/>
-  <text class="lbl" x="330" y="223" font-size="13">CU-UP (SDAP/PDCP-U)</text>
+  <rect class="box" x="230" y="100" width="200" height="150" rx="12"/>
+  <text class="lbl" x="330" y="124">gNB-CU</text>
+  <rect class="box" x="250" y="140" width="160" height="42" rx="8"/>
+  <text class="lbl" x="330" y="166" font-size="13">CU-CP (RRC/PDCP-C)</text>
+  <rect class="box" x="250" y="192" width="160" height="42" rx="8"/>
+  <text class="lbl" x="330" y="218" font-size="13">CU-UP (SDAP/PDCP-U)</text>
 
   <!-- DU -->
   <rect class="box" x="520" y="130" width="150" height="100" rx="12"/>
   <text class="lbl" x="595" y="170">gNB-DU</text>
   <text class="sub" x="595" y="190">RLC / MAC / PHY-high</text>
 
-  <!-- RU -->
-  <rect class="box" x="760" y="140" width="110" height="80" rx="12"/>
-  <text class="lbl" x="815" y="178">RU</text>
-  <text class="sub" x="815" y="196">PHY-low / RF</text>
+  <!-- RU (O-RAN fronthaul, shown greyed as it is outside 3GPP scope) -->
+  <rect x="760" y="140" width="110" height="80" rx="12" fill="#101622" stroke="#3a4760" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text class="lbl" x="815" y="174" fill="#8793a8">RU</text>
+  <text class="sub" x="815" y="192" fill="#6b7a94">PHY-low / RF</text>
+  <text class="sub" x="815" y="206" fill="#6b7a94">(O-RAN fronthaul)</text>
 
   <!-- links -->
   <line class="ln" x1="160" y1="180" x2="230" y2="180"/>
   <text class="ref" x="195" y="172">NG</text>
 
-  <line class="ln" x1="330" y1="150" x2="330" y2="110"/>
-  <line class="ln" x1="410" y1="170" x2="410" y2="170"/>
-  <text class="ref" x="330" y="104">E1 (CU-CP ↔ CU-UP)</text>
+  <!-- E1 connects CU-CP and CU-UP (vertical link in the gap between the two inner boxes) -->
+  <line class="ln" x1="330" y1="182" x2="330" y2="192"/>
+  <text class="ref" x="355" y="190" text-anchor="start">E1</text>
 
   <line class="ln" x1="430" y1="180" x2="520" y2="180"/>
   <text class="ref" x="475" y="172">F1</text>
 
-  <line class="ln" x1="670" y1="180" x2="760" y2="180"/>
-  <text class="ref" x="715" y="172">7-2x (option)</text>
+  <line x1="670" y1="180" x2="760" y2="180" stroke="#3a4760" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text class="ref" x="715" y="172" fill="#6b7a94">fronthaul</text>
 
-  <text class="ref" x="450" y="310">References: TS 38.401, TS 38.300 · F1 (TS 38.470/473) · E1 (TS 38.460/463)</text>
+  <text class="ref" x="430" y="310">3GPP CU/DU split: TS 38.401, TS 38.300 · F1 (TS 38.470/473) · E1 (TS 38.460/463)</text>
   <text class="ref" x="450" y="332">Further disaggregation for sub-THz and AI-native radio is under study (TR 38.914).</text>
 </svg>

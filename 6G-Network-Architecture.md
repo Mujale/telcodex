@@ -1,8 +1,8 @@
 # 6G Network Architecture — Components Studied in 3GPP
 
 
-This document describes the 6G network architecture components that 3GPP has **studied or is
-currently studying**.
+Explore the building blocks of the 6G network — the components 3GPP has **studied or is
+currently studying**, from the radio access network to the service-based core.
 
 ---
 

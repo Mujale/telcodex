@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>6G Core Network in 3GPP — Next-Gen Service-Based Architecture | Telcodex.io</title>
+<meta name="description" content="The 6G core network in 3GPP: the SA2 architecture direction, how it builds on the 5G Core service-based architecture, AI-native functions, next-gen sessions and compute integration." />
+<meta name="keywords" content="6G core, next generation core, service-based architecture, 5G Core, AMF, SMF, UPF, NWDAF, AI-native, 3GPP SA2" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://telcodex.io/core.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Telcodex.io" />
+<meta property="og:title" content="6G Core Network in 3GPP — Next-Gen Service-Based Architecture" />
+<meta property="og:description" content="The SA2 architecture direction, AI-native functions, next-gen sessions and compute integration." />
+<meta property="og:url" content="https://telcodex.io/core.html" />
+<meta name="twitter:card" content="summary" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"6G Core Network in 3GPP — Next-Gen Service-Based Architecture","description":"The 6G core network in 3GPP: the SA2 architecture direction, how it builds on the 5G Core service-based architecture, AI-native functions, next-gen sessions and compute integration.","author":{"@type":"Organization","name":"Telcodex.io"},"publisher":{"@type":"Organization","name":"Telcodex.io"},"mainEntityOfPage":"https://telcodex.io/core.html","inLanguage":"en"}
+</script>
+<!-- STEP 1: AdSense verification tag — paste here when approved -->
+<!-- STEP 2: Google Funding Choices (CMP) snippet — paste here -->
+<link rel="stylesheet" href="assets/page.css" />
+</head>
+<body>
+<div class="topbar"><div class="inner"><nav><a href="/">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></div>
+<header class="site"><div class="inner">
+  <a class="brandlink" href="/"><div class="brand"><span class="logo">6G</span><div><h1>6G Network Evolution</h1><div class="sub">The 6G Standards &amp; Architecture Codex</div></div></div></a>
+</div></header>
+<nav class="topics"><div class="inner">
+  <a href="/" data-key="home">Home</a>
+  <a href="standardization.html" data-key="standardization">Standardization &amp; Timeline</a>
+  <a href="features.html" data-key="features">Features</a>
+  <a href="architecture.html" data-key="architecture">Network Architecture</a>
+  <a href="ran.html" data-key="ran">RAN</a>
+  <a href="core.html" data-key="core">Core</a>
+  <a href="management.html" data-key="management">Network Management</a>
+</div></nav>
+
+<div class="layout">
+  <main>
+    <article class="doc" id="doc">
+<!-- prerendered -->
+<h1>6G Core — The Next-Generation Core Network in 3GPP</h1>
+<p>See how the core network is set to evolve for 6G — the architecture study in 3GPP, how it builds on the 5G Core's service-based design, and the new directions under examination.</p>
+<blockquote><p><strong>Status key:</strong> <em>Study</em> = feasibility work. <em>Normative</em> = approved specification content. <em>Planned</em> = Rel-21 scope stated by 3GPP, not yet frozen.</p></blockquote>
+<hr/>
+<h2 id="sec-0">The architecture study</h2>
+<p><img alt="6G core — evolving the service-based architecture" src="images/6g-core.svg" /></p>
+<p><em>Figure 1 — The service-based core functions carried toward 6G, plus the AI-native and sensing functions and the compute-integration direction under study.</em></p>
+<p>The 6G core architecture — what grows out of, or replaces, the 5G Core's service-based architecture (SBA) — will be owned by 3GPP's system-architecture group (SA2), with the normative specifications expected in Release 21. Early 6G work so far sits mainly in service requirements (SA1) and RAN; a dedicated SA2 6G core architecture specification has not yet been finalised. The core must cope with very high throughput, sub-millisecond services, AI built in as a native capability, and the seamless blending of terrestrial, non-terrestrial, and private deployments. <em>References: baseline TS 23.501 / TS 23.502; 6G core architecture is a Rel-21 expectation.</em> <strong>Status: planned (Rel-21); early study.</strong></p>
+<hr/>
+<h2 id="sec-1">The service-based foundation it builds on</h2>
+<p>The 5G Core defines every function with a service-based interface, and that model is the starting point for 6G. The functions below are the baseline being carried forward and evolved.</p>
+<ul><li><strong>AMF — Access and Mobility Management.</strong> The single entry point for device access: signalling termination, registration and authentication anchoring, mobility, and paging. The 6G direction deepens its link to analytics for AI-assisted mobility. <em>TS 23.501 §6.2.6.</em></li><li><strong>SMF — Session Management.</strong> Manages the session lifecycle, address allocation, traffic routing, and QoS enforcement toward the user plane. A focus for compute integration in 6G. <em>TS 23.501 §6.2.7.</em></li><li><strong>UPF — User Plane.</strong> The forwarding function: routing, inspection, QoS enforcement, and local break-out for edge computing. The prime target for "compute-aware" routing in 6G. <em>TS 23.501 §6.2.8.</em></li><li><strong>PCF — Policy Control.</strong> Session, access, mobility, and device policy; the 6G direction is policy driven from real-time analytics. <em>TS 23.501 §6.2.13.</em></li><li><strong>NEF — Network Exposure.</strong> The secure gateway to outside applications; gains importance as the exposure point for sensing and AI services. <em>TS 23.501 §6.2.11.</em></li><li><strong>UDM / UDR — Data management and repository.</strong> Subscriber data, credentials, and the converged data store behind them. <em>TS 23.501 §6.2.14 / §6.2.15.</em></li></ul>
+<p><strong>Status: evolving towards 6G.</strong></p>
+<hr/>
+<h2 id="sec-2">AI as a native capability</h2>
+<p>In 5G, the analytics function (NWDAF) sits alongside the network functions. For 6G the study asks whether AI should be built directly into the functions themselves — with embedded inference, model training and distribution handled as first-class network services, and a full model lifecycle (data provenance, versioning, and explainability). The network data analytics function and its training and inference roles are the springboard for this. A separate, application-facing track exposes AI/ML to vertical applications through the SEAL enablement layer. <em>References: TS 23.288 (network data analytics / NWDAF); TS 23.482 (SEAL AI/ML enablement for verticals — application-layer, distinct from 5GC-native AI/ML); TS 28.105 (AI/ML management).</em> <strong>Status: evolving / 6G study.</strong></p>
+<hr/>
+<h2 id="sec-3">Next-generation sessions and QoS</h2>
+<p>The session and quality-of-service framework is being pushed toward 6G service needs: deterministic, sub-millisecond flows; very high throughput sessions; and a two-way quality API that lets authorised applications both set end-to-end quality targets and receive quality reports back, coordinated through the exposure and policy functions. <em>References: combined-QoS requirements in TS 22.261; exposure via NEF to the policy and session functions.</em> <strong>Status: requirements normative, follow-on work in progress.</strong></p>
+<hr/>
+<h2 id="sec-4">Compute and network together</h2>
+<p>A distinctive 6G direction is co-designing where computation runs with how sessions are managed. The 5G edge-computing framework, where the session and user-plane functions already steer traffic toward edge application servers, is the precursor. The 6G study explores exposing compute-resource availability as a first-class quality parameter and scheduling sessions with awareness of edge processing — relevant to immersive, metaverse, and split-rendering services. <em>References: edge computing TS 23.548 / TS 23.558; 6G architecture study.</em> <strong>Status: study.</strong></p>
+<hr/>
+<h2 id="sec-5">Integrated terrestrial and non-terrestrial</h2>
+<p>The 6G architecture work treats non-terrestrial access as an integral layer of the system rather than an add-on — spanning direct device-to-satellite access, multi-orbit constellations, and on-board processing — with the core handling session continuity and mobility across the terrestrial and satellite segments. <em>References: NTN work in TS 23.501/23.502 and the 6G architecture study.</em> <strong>Status: specified for 5G NTN, 6G integration under study.</strong></p>
+<hr/>
+<h2 id="sec-6">Core specs and studies at a glance</h2>
+<div class="table-wrap"><table><thead><tr><th>Spec / item</th><th>Area</th><th>Status</th></tr></thead><tbody><tr><td>6G System architecture (SA2)</td><td>Core architecture</td><td>Planned (Rel-21)</td></tr><tr><td>TS 23.501 / TS 23.502</td><td>Service-based architecture &amp; procedures (baseline)</td><td>Normative (evolving)</td></tr><tr><td>TS 23.288</td><td>Network data analytics / NWDAF (network-side AI/ML)</td><td>Normative</td></tr><tr><td>TS 23.482</td><td>SEAL AI/ML enablement (for vertical apps)</td><td>Normative</td></tr><tr><td>TS 28.105</td><td>AI/ML management (OAM)</td><td>Normative</td></tr><tr><td>TS 22.261</td><td>Service requirements, incl. combined QoS</td><td>Normative</td></tr><tr><td>TS 23.548 (network side) / TS 23.558 (application side)</td><td>Edge computing (compute-integration precursor)</td><td>Normative</td></tr></tbody></table></div>
+<hr/>
+<div class="related"><h4>Related topics</h4><div class="cards"><a href="standardization.html"><strong>Standardization & Timeline</strong><span>Release 20 vs 21 and the approved 6G freeze dates.</span></a><a href="features.html"><strong>6G Features</strong><span>Sub-THz, AI-native radio, ISAC, ambient IoT and more.</span></a><a href="architecture.html"><strong>Network Architecture</strong><span>How the RAN and core evolve for 6G, with diagrams.</span></a></div></div>
+</article>
+    <div class="ad ad-inline"><span class="ad-label">Advertisement</span></div>
+  </main>
+  <aside>
+    <div class="side-card"><h4>On this page</h4><nav class="toc" id="toc"><a href="#sec-0">The architecture study</a><a href="#sec-1">The service-based foundation it builds on</a><a href="#sec-2">AI as a native capability</a><a href="#sec-3">Next-generation sessions and QoS</a><a href="#sec-4">Compute and network together</a><a href="#sec-5">Integrated terrestrial and non-terrestrial</a><a href="#sec-6">Core specs and studies at a glance</a></nav></div>
+    <div class="ad rail"><span class="ad-label">Advertisement</span></div>
+  </aside>
+</div>
+
+<footer class="site"><div class="inner">
+  <span>© <span id="yr"></span> Telcodex.io · The 6G Standards &amp; Architecture Codex.</span>
+  <nav class="flinks">
+    <a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="policy.html?doc=privacy" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="policy.html?doc=cookie" target="_blank" rel="noopener">Cookie Policy</a>
+    <a href="policy.html?doc=terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+    <button type="button" id="ccSettings">Cookie settings</button>
+    <button type="button" id="ccDoNotSell">Do Not Sell or Share My Info</button>
+  </nav>
+</div></footer>
+
+<div class="cc-banner hidden" id="ccBanner" role="dialog" aria-live="polite" aria-label="Cookie consent"><div class="cc-inner">
+  <div class="cc-text"><strong>We value your privacy</strong>We use strictly necessary cookies to make this site work. With your consent we would also use cookies for analytics and advertising (including Google AdSense). You can accept all, reject all non-essential cookies, or choose per category. See our <a href="policy.html?doc=cookie" target="_blank" rel="noopener">Cookie Policy</a>, <a href="policy.html?doc=privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="policy.html?doc=terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>.</div>
+  <div class="cc-actions"><button type="button" class="btn btn-outline" id="ccReject">Reject all</button><button type="button" class="btn btn-outline" id="ccCustomize">Customize</button><button type="button" class="btn btn-primary" id="ccAccept">Accept all</button></div>
+</div></div>
+<div class="cc-overlay hidden" id="ccOverlay" role="dialog" aria-modal="true" aria-label="Cookie preferences"><div class="cc-modal">
+  <h2>Cookie preferences</h2><p>Choose which categories of cookies you allow. Strictly necessary cookies are always on. You can change these choices any time via “Cookie settings” in the footer.</p>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Strictly necessary</h3><span class="locked">Always on</span></div><p>Required for core functionality and to remember your consent choices.</p></div>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Analytics</h3><label class="sw"><input type="checkbox" id="catAnalytics" /><span class="slider"></span></label></div><p>Anonymous, aggregated usage. Loads only if enabled.</p></div>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Advertising</h3><label class="sw"><input type="checkbox" id="catAds" /><span class="slider"></span></label></div><p>Google AdSense and personalised/limited ads. Loads only if enabled.</p></div>
+  <div class="cc-modal-actions"><button type="button" class="btn btn-outline" id="ccModalReject">Reject all</button><button type="button" class="btn btn-primary" id="ccModalSave">Save choices</button></div>
+</div></div>
+
+<script>window.PAGE={md:"6G-Core.md",key:"core"};</script>
+<script src="assets/page.js"></script>
+</body>
+</html>

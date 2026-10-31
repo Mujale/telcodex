@@ -41,7 +41,7 @@
 
   <!-- Service-Based Bus -->
   <line class="bus" x1="430" y1="150" x2="920" y2="150"/>
-  <text class="ttl" x="430" y="135">Service-Based Architecture (SBA) · TS 23.501</text>
+  <text class="ttl" x="40" y="40">Service-Based Architecture (SBA) · TS 23.501</text>
 
   <!-- Core NFs on the bus -->
   <g>
@@ -84,11 +84,12 @@
   <!-- UPF (user plane, below) -->
   <rect class="nf" x="430" y="300" width="100" height="48"/>
   <text class="lbl" x="480" y="320">UPF</text><text class="sub" x="480" y="337">user plane</text>
-  <line class="ln" x1="480" y1="300" x2="480" y2="228"/>
-  <text class="ref" x="505" y="266">N4</text>
+  <!-- SMF controls UPF (N4): connect UPF top to SMF bottom, clear of other boxes -->
+  <line class="ln" x1="500" y1="300" x2="560" y2="228"/>
+  <text class="ref" x="543" y="262">N4</text>
   <!-- RAN to UPF (N3) -->
   <line class="ln" x1="360" y1="300" x2="430" y2="320"/>
-  <text class="ref" x="395" y="330">N3</text>
+  <text class="ref" x="395" y="314">N3</text>
 
   <!-- Data network -->
   <rect class="zone" x="580" y="300" width="130" height="48"/>

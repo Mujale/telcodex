@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>6G Features Being Studied in 3GPP — Sub-THz, AI, ISAC | Telcodex.io</title>
+<meta name="description" content="The 6G features under study in 3GPP: sub-THz spectrum, AI-native radio, integrated sensing (ISAC), ambient IoT, digital twins, and more — grouped by RAN, SA and CT." />
+<meta name="keywords" content="6G features, sub-THz, AI-native radio, ISAC, ambient IoT, digital twin, 3GPP, Release 20" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://telcodex.io/features.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Telcodex.io" />
+<meta property="og:title" content="6G Features Being Studied in 3GPP" />
+<meta property="og:description" content="Sub-THz, AI-native radio, ISAC, ambient IoT, digital twins and more — the features shaping 6G." />
+<meta property="og:url" content="https://telcodex.io/features.html" />
+<meta name="twitter:card" content="summary" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"6G Features Being Studied in 3GPP","description":"The 6G features under study in 3GPP: sub-THz spectrum, AI-native radio, integrated sensing (ISAC), ambient IoT, digital twins and more.","author":{"@type":"Organization","name":"Telcodex.io"},"publisher":{"@type":"Organization","name":"Telcodex.io"},"mainEntityOfPage":"https://telcodex.io/features.html","inLanguage":"en"}
+</script>
+<!-- STEP 1: AdSense verification tag — paste here when approved -->
+<!-- STEP 2: Google Funding Choices (CMP) snippet — paste here -->
+<link rel="stylesheet" href="assets/page.css" />
+</head>
+<body>
+<div class="topbar"><div class="inner"><nav><a href="/">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></div>
+<header class="site"><div class="inner">
+  <a class="brandlink" href="/"><div class="brand"><span class="logo">6G</span><div><h1>6G Network Evolution</h1><div class="sub">The 6G Standards &amp; Architecture Codex</div></div></div></a>
+</div></header>
+<nav class="topics"><div class="inner">
+  <a href="/" data-key="home">Home</a>
+  <a href="standardization.html" data-key="standardization">Standardization &amp; Timeline</a>
+  <a href="features.html" data-key="features">Features</a>
+  <a href="architecture.html" data-key="architecture">Network Architecture</a>
+  <a href="ran.html" data-key="ran">RAN</a>
+  <a href="core.html" data-key="core">Core</a>
+  <a href="management.html" data-key="management">Network Management</a>
+</div></nav>
+
+<div class="layout">
+  <main>
+    <div class="spotlight">
+      <div class="st-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12c3-6 15-6 18 0-3 6-15 6-18 0z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.8"/></svg></div>
+      <div class="st-body">
+        <div class="st-tag">Featured deep-dive</div>
+        <h3>ISAC — Integrated Sensing and Communication</h3>
+        <p>How 3GPP turns the network into a sensor. Full technical analysis with a downloadable PDF.</p>
+      </div>
+      <a class="st-btn" href="isac.html">Read the ISAC deep-dive →</a>
+    </div>
+    <article class="doc" id="doc">
+<!-- prerendered -->
+<h1>6G Network Evolution — Features Studied in 3GPP</h1>
+<p>Discover the features shaping 6G — what 3GPP has <strong>studied or is currently studying</strong>. Each feature below maps to a 3GPP study item (Technical Report) or to normative work (Technical Specification).</p>
+<p>3GPP structures 6G across two releases:</p>
+<ul><li><strong>Release 20</strong> — the bridge/pre-6G release. It completes 5G-Advanced and launches the first 6G <strong>study items</strong> (Technical Reports, TRs). Some adjacent features are already <strong>normative</strong> (Technical Specifications, TSs) in Rel-20.</li><li><strong>Release 21</strong> — the first <strong>normative 6G</strong> release (first 6G TSs). Rel-21 scope is planned, not yet frozen; no Rel-21 6G TSs exist in the corpus at this snapshot date.</li></ul>
+<p>Each feature lists: <strong>what it is</strong>, <strong>why it matters</strong>, <strong>the technical approach</strong>, and the <strong>associated TR/TS or study/work item</strong> where known.</p>
+<blockquote><p><strong>Status key:</strong> <em>Study</em> = Technical Report / feasibility study. <em>Normative</em> = Technical Specification with approved content. <em>Planned</em> = Rel-21 scope stated by 3GPP but not yet specified.</p></blockquote>
+<hr/>
+<h2 id="sec-0">Part 1 — RAN (Radio Access Network)</h2>
+<h3>1. 6G Radio Scenarios and Requirements (channel modelling)</h3>
+<ul><li><strong>Spec / item:</strong> TR 38.914 · work item <em>FS_6G_RAN</em> · <strong>Study (in progress)</strong></li><li><strong>What it is:</strong> The RAN-level study of propagation scenarios, channel models, and radio-layer KPIs needed to design the 6G air interface — the RAN counterpart to the SA1 requirements study (TR 22.870).</li><li><strong>Why it matters:</strong> Accurate channel models for the new bands are the prerequisite for all subsequent physical-layer and AI-native link design; without them nothing downstream can be calibrated.</li><li><strong>Technical approach:</strong> Defines deployment scenarios (dense indoor hotspot, outdoor macro, sidelink/D2D, NTN-integrated, sub-THz short range); extends channel models to sub-THz (100–300 GHz) and the upper mid-band (7–24 GHz); sets KPIs such as Tbps-class peak downlink, high edge rates, very low BLER targets, and ~1 cm positioning. Evaluates waveform candidates for high-mobility / high-Doppler conditions.</li></ul>
+<hr/>
+<h3>2. Sub-THz and Upper Mid-Band New Radio (spectrum)</h3>
+<ul><li><strong>Spec / item:</strong> under TR 38.914 / 6G radio study · work item <em>FS_6G_NR_spectrum</em> · <strong>Study</strong></li><li><strong>What it is:</strong> Study of new 6G candidate spectrum — sub-THz (100–300 GHz, the D-/G-band region) and the upper mid-band (7–24 GHz, "FR3").</li><li><strong>Why it matters:</strong> 5G mmWave stops around 52.6 GHz. Sub-THz unlocks Tbps peak rates over short ranges (indoor hotspots, backhaul); FR3 balances coverage and capacity for wide-area 6G.</li><li><strong>Technical approach:</strong> Sub-THz needs near-field beamforming, reconfigurable intelligent surfaces, and new antenna structures because path loss and Doppler behaviour differ from mmWave. FR3 is studied for &gt;1 GHz carrier bandwidth with beam management traded between FR1 and FR2 characteristics. Both feed the 6G band definitions.</li></ul>
+<hr/>
+<h3>3. AI-Native Radio (AI for PHY and L2)</h3>
+<ul><li><strong>Spec / item:</strong> part of <em>FS_6G_RAN</em>, building on Rel-19 AI/ML for NR (TR 38.843) · work item <em>FS_6G_AI_NR</em> · <strong>Study (transitioning from 5G add-on to 6G native)</strong></li><li><strong>What it is:</strong> Where 5G treated AI/ML as an add-on for specific functions (CSI feedback, beam management, positioning), 6G studies making AI-native the <strong>default</strong> design principle across PHY (channel estimation, decoding), MAC (scheduling), and RRC (mobility).</li><li><strong>Why it matters:</strong> AI-native radio adapts to fast-changing environments without manual parameter tuning, approaching optimal performance across heterogeneous scenarios.</li><li><strong>Technical approach:</strong> Neural-network-based channel coding candidates (e.g. autoencoders for specific channels), learned waveforms, and over-the-air training signalling; a framework for the network to provision/version AI models to UEs with trust handling; and an "AI split" placing functions at the UE, gNB-DU, gNB-CU, or core per latency/compute trade-off.</li></ul>
+<hr/>
+<h3>4. Integrated Sensing and Communication (ISAC) — radio aspects</h3>
+<ul><li><strong>Spec / item:</strong> radio design under the 6G RAN study; requirements TS 22.137, architecture TS 23.137 · work item <em>ISAC_REQ / Sensing</em> · <strong>Requirements normative, radio under study</strong></li><li><strong>What it is:</strong> The same network serves double duty — carrying communication traffic while also performing radar-like measurement, reusing its own transmissions to locate, follow, and identify objects nearby.</li><li><strong>Why it matters:</strong> A defining 6G capability — automotive perception, object/UAV tracking, gesture recognition, cm-level positioning, and environmental monitoring, all without dedicated sensor infrastructure.</li><li><strong>Technical approach:</strong> Sensing KPIs (range, velocity, angular resolution), multi-target tracking, and co-existence with communication QoS; monostatic/bistatic sensing geometries; interference management between sensing and data transmission.</li></ul>
+<hr/>
+<h3>5. Reconfigurable Intelligent Surfaces (RIS)</h3>
+<ul><li><strong>Spec / item:</strong> TR 38.858 (Rel-18/19 foundation), extended for 6G · work item <em>FS_RIS</em> · <strong>Rel-18 study complete; 6G normative work planned</strong></li><li><strong>What it is:</strong> Engineered surfaces whose electromagnetic response can be tuned so that incident radio waves are steered toward a chosen direction, redirecting signals without an active transmit chain.</li><li><strong>Why it matters:</strong> Useful for closing coverage gaps at sub-THz frequencies, where propagation loss is high, and for broad indoor/outdoor coverage at lower energy cost than deploying more active base stations.</li><li><strong>Technical approach:</strong> A control interface on the network side to set the surface's phase-shift pattern, channel-estimation methods that take the surface into account, and treatment of the RIS as a new network entity with management and orchestration hooks.</li></ul>
+<hr/>
+<h3>6. Network Energy Efficiency / Green RAN</h3>
+<ul><li><strong>Spec / item:</strong> TS 28.310 (energy-efficiency management), scenarios in TR 38.914 · work item <em>FS_6G_NR</em> + energy management · <strong>5G normative; 6G extensions under study</strong></li><li><strong>What it is:</strong> Study of radio-node energy consumption at architectural and physical-layer levels — base-station sleep modes, dynamic spectrum sharing, and inter-node coordination to reduce carbon footprint.</li><li><strong>Why it matters:</strong> 6G treats a large energy-efficiency-per-bit improvement as a design constraint as fundamental as peak data rate.</li><li><strong>Technical approach:</strong> Extended DTX/DRX including base-station deep sleep; AI-driven traffic prediction with pre-emptive sleep scheduling; energy-proportional hardware in the TR 38.914 scenarios; OAM energy KPIs and reporting (TS 28.310, TS 28.552).</li></ul>
+<hr/>
+<h2 id="sec-1">Part 2 — SA (Service &amp; System Aspects / Architecture)</h2>
+<h3>7. 6G Use Cases and Service Requirements</h3>
+<ul><li><strong>Spec / item:</strong> TR 22.870 · work item <em>FS_6G_Requirements</em> (SA1) · <strong>Study (TR reported complete)</strong></li><li><strong>What it is:</strong> The foundational SA1 requirements study. It collects use cases from verticals (industry, public safety, health, immersive media, space), derives KPIs, and identifies gaps versus 5G service requirements (TS 22.261).</li><li><strong>Why it matters:</strong> The later architecture and radio work is shaped by what this study concludes. It sets the headline targets — Tbps-class peak rates, sub-millisecond latency, non-terrestrial coverage, and very high device density (order 10⁷ devices/km²).</li><li><strong>Technical approach:</strong> Use-case workshops → candidate KPI tables → gap analysis against TS 22.261 → new normative requirements, covering holographic communication, tactile/haptic services, extreme-reliability industrial control, and space-segment connectivity.</li></ul>
+<hr/>
+<h3>8. Mobile Metaverse Services</h3>
+<ul><li><strong>Spec / item:</strong> TS 22.156 · work item <em>Mobile Metaverse</em> (SA1) · <strong>Normative (active in Rel-20)</strong></li><li><strong>What it is:</strong> Service requirements for immersive, multi-user 3D shared environments delivered over the mobile network — avatars, shared spatial experiences, haptics, and holographic rendering.</li><li><strong>Why it matters:</strong> A key 6G use-case driver, requiring order-of-magnitude improvements in latency, bandwidth, and multi-user synchronisation over 5G.</li><li><strong>Technical approach:</strong> Stage 1 requirements for very low end-to-end latency (haptics and visual rendering), high per-user data rates, synchronisation across UEs in a shared scene, split rendering (compute in the network), and privacy for avatar/identity data.</li></ul>
+<hr/>
+<h3>9. Integrated Sensing and Communication (ISAC) — architecture</h3>
+<ul><li><strong>Spec / item:</strong> TS 22.137 (Stage 1), TS 23.137 (Stage 2), SA6 enablement TS 23.255 · <strong>Requirements normative; architecture active</strong></li><li><strong>What it is:</strong> The system-level framework that turns sensing into a network service.</li><li><strong>Why it matters:</strong> Supplies the architecture and APIs through which applications can request sensing and receive the results, exposing sensing as a network service.</li><li><strong>Technical approach:</strong> A Sensing Service Function interfacing with the core, a sensor-data management framework, and procedures for network-controlled versus UE-controlled sensing; SA6 adds application-layer sensing enablement via SEAL (TS 23.255).</li></ul>
+<hr/>
+<h3>10. Ambient IoT / Zero-Energy Devices (Phase 2)</h3>
+<ul><li><strong>Spec / item:</strong> TS 22.369, TS 23.369, TS 23.370, radio TS 38.191 / TS 38.291 · work item <em>AmbientIoT_Ph2</em> · <strong>Normative (multiple Rel-20 CRs approved)</strong></li><li><strong>What it is:</strong> Battery-free devices powered by harvested energy (from radio signals, light, or motion) that talk over NR, with the network serving as both their energy source and their interrogator.</li><li><strong>Why it matters:</strong> Enables extreme device density by removing the battery barrier for billions of sensors, tags, and actuators (logistics, healthcare, smart environments).</li><li><strong>Technical approach:</strong> Device classes DO (Duty-Cycled Only) and DO-A (DO with Active transmission) at sub-mW power; a gNB-Reader/interrogator architecture (TS 23.369); AIoT NAS (TS 24.369) and radio PHY (TS 38.191 / TS 38.291); temporary identifiers (TS 23.003) and OAM support (TS 28.541).</li></ul>
+<hr/>
+<h3>11. Energy Services Phase 2 (network as an energy actor)</h3>
+<ul><li><strong>Spec / item:</strong> TR 22.883 (study) → TS 22.261 (normative output) · work item <em>FS_EnergyServ_Ph2 / EnergyServ_Ph2-REQ</em> · <strong>Study complete → normative requirements</strong></li><li><strong>What it is:</strong> The network as an active participant in energy grids — reporting energy consumption of UEs and nodes, responding to grid demand signals, enabling demand-response.</li><li><strong>Why it matters:</strong> Aligns the network with sustainability goals and supports grid flexibility services, complementing the per-bit energy-efficiency targets.</li><li><strong>Technical approach:</strong> New energy-related KPIs in TS 22.261; requirements to expose energy metrics to authorised third parties; per-session/application energy-footprint reporting.</li></ul>
+<hr/>
+<h3>12. Next-Generation Core Architecture (6G System)</h3>
+<ul><li><strong>Spec / item:</strong> 6G Core architecture study (TR to be assigned) · work item <em>FS_6G_Arch</em> (SA2) · <strong>Study (starting in the Rel-20 timeframe)</strong></li><li><strong>What it is:</strong> The SA2 study of the architecture for the 6G System — what evolves from or replaces the 5G Core's Service-Based Architecture (SBA).</li><li><strong>Why it matters:</strong> The 6G core must handle Tbps flows, sub-ms services, AI-native network functions, and seamless integration of terrestrial, non-terrestrial, and private networks.</li><li><strong>Technical approach:</strong> Disaggregated core NFs with finer-grained splitting; native compute integration (the network scheduling/migrating compute alongside data sessions); evolved network slicing from soft to hard resource partitions; and study of semantic communication (compressing at the level of meaning, not just bits).</li></ul>
+<hr/>
+<h3>13. Network Digital Twin (NDT)</h3>
+<ul><li><strong>Spec / item:</strong> TS 28.561 (management of network digital twins) · work item <em>NDT-OAM</em> (SA5) · <strong>Normative (active in Rel-20)</strong></li><li><strong>What it is:</strong> A live digital copy of the physical network, kept current from ongoing measurements and used to optimise, anticipate faults, and test changes before they are applied.</li><li><strong>Why it matters:</strong> 6G networks are too complex for human-in-the-loop management; NDTs enable autonomous, zero-touch operation and underpin intent-driven management.</li><li><strong>Technical approach:</strong> A management data model for the twin (data sources, synchronisation interfaces, lifecycle); integration with the closed-control-loop framework; and analytics fed from the core's data analytics function.</li></ul>
+<hr/>
+<h3>14. AI/ML Network Architecture (NWDAF evolution)</h3>
+<ul><li><strong>Spec / item:</strong> TS 23.288 (NWDAF), TS 23.482 (AIML enablement), SA6 SEAL AIML TS 24.560 · work item <em>AIML_Ph2-APP / eMDAS_Ph4</em> · <strong>Normative (Phase 2 CRs approved in Rel-20)</strong></li><li><strong>What it is:</strong> Evolution of the 5G data-analytics function (NWDAF) toward an AI-native core, where AI/ML models are first-class network functions rather than analytical overlays.</li><li><strong>Why it matters:</strong> 6G defines AI as native infrastructure; the network must train, deploy, update, and retire models at scale for radio resource management, traffic prediction, and security.</li><li><strong>Technical approach:</strong> Distributed model training across multiple NWDAFs and a model repository/marketplace role; standardised AIML enablement APIs for vertical applications (TS 23.482); application-layer AIML service protocols (TS 24.560); and planned model lifecycle management (data provenance, versioning, explainability hooks).</li></ul>
+<hr/>
+<h2 id="sec-2">Part 3 — CT (Core Network Protocols)</h2>
+<h3>15. Ambient IoT CT Protocols</h3>
+<ul><li><strong>Spec / item:</strong> TS 24.369 (AIoT NAS), TS 29.369, TS 29.506 · work item <em>AmbientIoT_Ph2-CT</em> · <strong>Normative (Rel-20 CRs approved)</strong></li><li><strong>What it is:</strong> CT1/CT4 define a new, stripped-down NAS variant (AIoT NAS) and service-layer APIs for ambient IoT devices that cannot perform normal 5G registration.</li><li><strong>Why it matters:</strong> Zero-energy devices need a radically lightweight protocol stack; standard 5G NAS is too heavyweight for battery-less operation.</li><li><strong>Technical approach:</strong> A minimal, event-driven "check-in" NAS state machine (no persistent registration); AIoT temporary identifiers (TS 23.003); SBI data-management services (TS 29.369); and UDR extensions for AIoT device data (TS 29.506).</li></ul>
+<hr/>
+<h3>16. Combined QoS Configuration and Monitoring (cross-layer end-to-end QoS)</h3>
+<ul><li><strong>Spec / item:</strong> TS 22.261 (requirements) with SA2/CT follow-on · work item <em>CombQoS</em> · <strong>Requirements normative; architecture/CT work follows</strong></li><li><strong>What it is:</strong> A bidirectional QoS API letting authorised third parties provide end-to-end QoS parameters to the network and receive QoS monitoring reports back.</li><li><strong>Why it matters:</strong> 6G services (remote surgery, industrial control, holographic streaming) need the application to co-manage network QoS dynamically, not rely on static SLAs.</li><li><strong>Technical approach:</strong> New TS 22.261 clauses allowing a third party to inject end-to-end QoS parameters and to receive QoS reports; CT follow-on via Network Exposure Function (NEF) API extensions conveying third-party QoS intent to the policy (PCF) and session-management (SMF) functions.</li></ul>
+<hr/>
+<h2 id="sec-3">Reference Table — 3GPP Specs / Studies</h2>
+<div class="table-wrap"><table><thead><tr><th>Spec</th><th>Title</th><th>Group</th><th>Rel</th><th>Type</th></tr></thead><tbody><tr><td>TR 22.870</td><td>6G Use Cases and Service Requirements</td><td>SA1</td><td>20</td><td>Study</td></tr><tr><td>TR 38.914</td><td>6G NR Scenarios and Requirements</td><td>RAN1/4</td><td>20</td><td>Study</td></tr><tr><td>TS 22.137</td><td>Integrated Sensing and Communication (requirements)</td><td>SA1</td><td>18+</td><td>Normative</td></tr><tr><td>TS 23.137</td><td>Integrated Sensing and Communication (architecture)</td><td>SA2</td><td>19/20</td><td>Normative</td></tr><tr><td>TS 22.369</td><td>Service requirements for Ambient IoT</td><td>SA1</td><td>18+</td><td>Normative</td></tr><tr><td>TS 23.369</td><td>Architecture for Ambient IoT</td><td>SA2</td><td>19/20</td><td>Normative</td></tr><tr><td>TS 24.369</td><td>Ambient IoT NAS protocol</td><td>CT1</td><td>20</td><td>Normative</td></tr><tr><td>TS 22.156</td><td>Mobile Metaverse Services</td><td>SA1</td><td>20</td><td>Normative</td></tr><tr><td>TS 28.561</td><td>Network Digital Twin management</td><td>SA5</td><td>20</td><td>Normative</td></tr><tr><td>TS 23.288</td><td>NWDAF architecture (AI/ML Phase 2)</td><td>SA2</td><td>20</td><td>Normative</td></tr><tr><td>TS 23.482</td><td>AIML Enablement Service</td><td>SA6</td><td>20</td><td>Normative</td></tr><tr><td>TS 22.261</td><td>Service Requirements for the 5G/6G System (updated)</td><td>SA1</td><td>20</td><td>Normative</td></tr><tr><td>TR 38.858</td><td>Reconfigurable Intelligent Surfaces study</td><td>RAN1</td><td>18</td><td>Study</td></tr><tr><td>TS 28.310</td><td>Energy-efficiency management</td><td>SA5</td><td>20</td><td>Normative</td></tr></tbody></table></div>
+<div class="related"><h4>Related topics</h4><div class="cards"><a href="standardization.html"><strong>Standardization & Timeline</strong><span>Release 20 vs 21 and the approved 6G freeze dates.</span></a><a href="architecture.html"><strong>Network Architecture</strong><span>How the RAN and core evolve for 6G, with diagrams.</span></a><a href="ran.html"><strong>6G RAN</strong><span>The radio access network: spectrum, air interface, MIMO.</span></a></div></div>
+</article>
+    <div class="ad ad-inline"><span class="ad-label">Advertisement</span></div>
+  </main>
+  <aside>
+    <div class="side-card"><h4>On this page</h4><nav class="toc" id="toc"><a href="#sec-0">Part 1 — RAN (Radio Access Network)</a><a href="#sec-1">Part 2 — SA (Service &amp; System Aspects / Architecture)</a><a href="#sec-2">Part 3 — CT (Core Network Protocols)</a><a href="#sec-3">Reference Table — 3GPP Specs / Studies</a></nav></div>
+    <div class="ad rail"><span class="ad-label">Advertisement</span></div>
+  </aside>
+</div>
+
+<footer class="site"><div class="inner">
+  <span>© <span id="yr"></span> Telcodex.io · The 6G Standards &amp; Architecture Codex.</span>
+  <nav class="flinks">
+    <a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="policy.html?doc=privacy" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="policy.html?doc=cookie" target="_blank" rel="noopener">Cookie Policy</a>
+    <a href="policy.html?doc=terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+    <button type="button" id="ccSettings">Cookie settings</button>
+    <button type="button" id="ccDoNotSell">Do Not Sell or Share My Info</button>
+  </nav>
+</div></footer>
+
+<div class="cc-banner hidden" id="ccBanner" role="dialog" aria-live="polite" aria-label="Cookie consent"><div class="cc-inner">
+  <div class="cc-text"><strong>We value your privacy</strong>We use strictly necessary cookies to make this site work. With your consent we would also use cookies for analytics and advertising (including Google AdSense). You can accept all, reject all non-essential cookies, or choose per category. See our <a href="policy.html?doc=cookie" target="_blank" rel="noopener">Cookie Policy</a>, <a href="policy.html?doc=privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="policy.html?doc=terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>.</div>
+  <div class="cc-actions"><button type="button" class="btn btn-outline" id="ccReject">Reject all</button><button type="button" class="btn btn-outline" id="ccCustomize">Customize</button><button type="button" class="btn btn-primary" id="ccAccept">Accept all</button></div>
+</div></div>
+<div class="cc-overlay hidden" id="ccOverlay" role="dialog" aria-modal="true" aria-label="Cookie preferences"><div class="cc-modal">
+  <h2>Cookie preferences</h2><p>Choose which categories of cookies you allow. Strictly necessary cookies are always on. You can change these choices any time via “Cookie settings” in the footer.</p>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Strictly necessary</h3><span class="locked">Always on</span></div><p>Required for core functionality and to remember your consent choices.</p></div>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Analytics</h3><label class="sw"><input type="checkbox" id="catAnalytics" /><span class="slider"></span></label></div><p>Anonymous, aggregated usage. Loads only if enabled.</p></div>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Advertising</h3><label class="sw"><input type="checkbox" id="catAds" /><span class="slider"></span></label></div><p>Google AdSense and personalised/limited ads. Loads only if enabled.</p></div>
+  <div class="cc-modal-actions"><button type="button" class="btn btn-outline" id="ccModalReject">Reject all</button><button type="button" class="btn btn-primary" id="ccModalSave">Save choices</button></div>
+</div></div>
+
+<script>window.PAGE={md:"6G-Network-Evolution-Features.md",key:"features"};</script>
+<script src="assets/page.js"></script>
+</body>
+</html>

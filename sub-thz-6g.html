@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What Is Sub-THz Spectrum in 6G? (100-300 GHz) | Telcodex.io</title>
+<meta name="description" content="Sub-THz spectrum (100-300 GHz) for 6G explained: why 3GPP studies it, the path-loss and near-field challenges, use cases, and how it differs from the FR3 upper mid-band." />
+<meta name="keywords" content="sub-THz, 6G spectrum, 100-300 GHz, FR3, terahertz, 3GPP, mmWave, 6G bands" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://telcodex.io/sub-thz-6g.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Telcodex.io" />
+<meta property="og:title" content="What Is Sub-THz Spectrum in 6G? (100-300 GHz)" />
+<meta property="og:description" content="Sub-THz spectrum (100-300 GHz) for 6G explained: why 3GPP studies it, the path-loss and near-field challenges, use cases, and how it differs from the FR3 upper mid-band." />
+<meta property="og:url" content="https://telcodex.io/sub-thz-6g.html" />
+<meta name="twitter:card" content="summary" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"What Is Sub-THz Spectrum in 6G? (100-300 GHz)","description":"Sub-THz spectrum (100-300 GHz) for 6G explained: why 3GPP studies it, the path-loss and near-field challenges, use cases, and how it differs from the FR3 upper mid-band.","author":{"@type":"Organization","name":"Telcodex.io"},"publisher":{"@type":"Organization","name":"Telcodex.io"},"mainEntityOfPage":"https://telcodex.io/sub-thz-6g.html","inLanguage":"en"}
+</script>
+<!-- STEP 1: AdSense verification tag -- paste here when approved -->
+<!-- STEP 2: Google Funding Choices (CMP) snippet -- paste here -->
+<link rel="stylesheet" href="assets/page.css" />
+</head>
+<body>
+<div class="topbar"><div class="inner"><nav><a href="/">Home</a><a href="articles.html">Articles</a><a href="glossary.html">Glossary</a><a href="about.html">About</a></nav></div></div>
+<header class="site"><div class="inner">
+  <a class="brandlink" href="/"><div class="brand"><span class="logo">6G</span><div><h1>6G Network Evolution</h1><div class="sub">The 6G Standards &amp; Architecture Codex</div></div></div></a>
+</div></header>
+<nav class="topics"><div class="inner">
+  <a href="/" data-key="home">Home</a>
+  <a href="standardization.html" data-key="standardization">Standardization &amp; Timeline</a>
+  <a href="features.html" data-key="features">Features</a>
+  <a href="architecture.html" data-key="architecture">Network Architecture</a>
+  <a href="ran.html" data-key="ran">RAN</a>
+  <a href="core.html" data-key="core">Core</a>
+  <a href="management.html" data-key="management">Network Management</a>
+</div></nav>
+
+<div class="layout">
+  <main>
+    <article class="doc" id="doc">
+<!-- prerendered -->
+<h1>What Is Sub-THz Spectrum in 6G?</h1>
+<p>Sub-THz spectrum — very roughly the <strong>100–300 GHz</strong> range — is one of the most talked-about frontiers for 6G. This page explains what it is, why 3GPP is studying it, the hard physics that make it difficult, where it might be used, and how it relates to the nearer-term "FR3" upper mid-band. Everything here is kept to 3GPP's documented study scope, in plain language.</p>
+<blockquote><p><strong>Status:</strong> Sub-THz above about 71 GHz is still <strong>pre-normative</strong> in 3GPP. There is no approved 6G operating band or specification for it yet — it lives in feasibility studies and ITU-R IMT-2030 input, not in frozen standards.</p></blockquote>
+<h2 id="sec-0">Where sub-THz sits in the frequency map</h2>
+<p>3GPP today defines three normative frequency ranges for 5G NR:</p>
+<ul><li><strong>FR1</strong> — roughly 410 MHz to 7.125 GHz (the sub-7 GHz "mid and low band").</li><li><strong>FR2-1</strong> — 24.25 to 52.6 GHz (millimetre wave).</li><li><strong>FR2-2</strong> — 52.6 to 71 GHz.</li></ul>
+<p>An emerging <strong>FR3</strong> label covers the <strong>upper mid-band (about 7–24 GHz)</strong>. Everything <strong>above 71 GHz, up toward 300 GHz</strong>, is "sub-THz" and has no normative range designation — it is studied through Technical Reports and 6G/IMT-2030 contributions only.</p>
+<h2 id="sec-1">Why 3GPP is studying it</h2>
+<p>The attraction is simple: <strong>bandwidth</strong>. The appeal and the drivers are:</p>
+<ul><li><strong>Room to grow.</strong> Sub-7 GHz is congested and mmWave coverage is limited. Sub-THz offers large blocks of unused, contiguous spectrum.</li><li><strong>Extreme capacity.</strong> Channels tens of GHz wide are conceivable above 100 GHz — far beyond the 400 MHz typical in FR2-1 — which is what makes multi-terabit-per-second peak rates plausible.</li><li><strong>Short-range, high-throughput use.</strong> Backhaul, in-venue hotspots, device-to-device links, and kiosk-style downloads can tolerate short range in exchange for huge throughput.</li><li><strong>Sensing.</strong> At millimetre and sub-millimetre wavelengths, compact antennas give very fine angular resolution — useful for the integrated sensing work happening alongside 6G.</li><li><strong>Feeding ITU-R.</strong> 3GPP must supply technology input to the IMT-2030 framework, which drives these feasibility studies ahead of any decisions at WRC-27.</li></ul>
+<h2 id="sec-2">The hard physics</h2>
+<p>Sub-THz is difficult for three main reasons.</p>
+<p><strong>Severe path loss and atmospheric absorption.</strong> Free-space loss climbs steeply with frequency, and molecular absorption (from oxygen and water vapour) creates peaks that make some sub-bands unusable over distance. Usable "windows" exist around 120–160 GHz, 220–270 GHz, and 300–350 GHz. Rain and foliage make outdoor range even shorter — potentially just tens of metres at 300 GHz.</p>
+<p><strong>Near-field operation.</strong> To overcome path loss you need large antenna arrays, but large arrays at these frequencies push the far-field boundary (the Rayleigh distance) out to tens of metres. That means devices may sit in the <strong>radiative near field</strong>, where the usual flat-wavefront assumptions behind beamforming break down and spherical-wave models are needed. 3GPP's channel model work (TR 38.901) is being extended to capture near-field and spatial-non-stationarity effects, starting with the 7–24 GHz study.</p>
+<p><strong>Beamforming and hardware.</strong> Beams become extremely narrow (fractions of a degree), so even tiny device movements break alignment and beam tracking must be fast and precise. Oscillator phase noise, wideband "beam squint," power-amplifier efficiency, and sub-millimetre fabrication tolerances all get harder above 100 GHz.</p>
+<h2 id="sec-3">Likely use cases</h2>
+<p>Within 3GPP's study framing, realistic sub-THz scenarios are short-range and capacity-focused:</p>
+<ul><li>Fixed wireless <strong>backhaul and fronthaul</strong> over short line-of-sight hops.</li><li><strong>Indoor hotspots</strong> with extreme capacity (factories, data centres, venues).</li><li><strong>Device-to-device</strong> and intra-rack links replacing cables.</li><li><strong>Kiosk/download</strong> zones for high-rate bursts.</li><li><strong>Joint sensing and communication</strong>, using the fine resolution for imaging-grade sensing.</li></ul>
+<h2 id="sec-4">Sub-THz vs FR3 (upper mid-band)</h2>
+<p>It is easy to confuse these, but they are different horizons:</p>
+<ul><li><strong>FR3 (7–24 GHz)</strong> is the <strong>near-term bridge</strong> between sub-7 GHz coverage and mmWave capacity. It has an emerging 3GPP designation, active channel-model work, and is expected in normative Release 20/21 work.</li><li><strong>Sub-THz (100–300 GHz)</strong> is the <strong>longer-term frontier</strong> — pure capacity, ultra-short range, with near-field effects as a major design constraint — dependent on WRC-27 spectrum decisions and the IMT-2030 outcome, likely a generation further out.</li></ul>
+<h2 id="sec-5">Reference points (3GPP)</h2>
+<ul><li><strong>TR 38.807 / TR 38.808</strong> — earlier studies on NR beyond 52.6 GHz and 52.6–71 GHz.</li><li><strong>TR 38.901</strong> — the channel model, being extended toward higher frequencies and near-field.</li><li><strong>TR 22.870 / TR 38.914</strong> — the 6G requirements and scenario studies.</li></ul>
+<h2 id="sec-6">In short</h2>
+<p>Sub-THz is a genuine 6G opportunity for enormous short-range capacity, but it is early-stage in 3GPP and hard to engineer. Expect the upper mid-band (FR3) to arrive first, with sub-THz following as the standards, spectrum, and hardware mature.</p>
+<p><em>Source: 3GPP study items and specification corpus, paraphrased. No non-3GPP or proprietary content.</em></p>
+</article>
+    <div class="ad ad-inline"><span class="ad-label">Advertisement</span></div>
+  </main>
+  <aside>
+    <div class="side-card"><h4>On this page</h4><nav class="toc" id="toc"><a href="#sec-0">Where sub-THz sits in the frequency map</a><a href="#sec-1">Why 3GPP is studying it</a><a href="#sec-2">The hard physics</a><a href="#sec-3">Likely use cases</a><a href="#sec-4">Sub-THz vs FR3 (upper mid-band)</a><a href="#sec-5">Reference points (3GPP)</a><a href="#sec-6">In short</a></nav></div>
+    <div class="ad rail"><span class="ad-label">Advertisement</span></div>
+  </aside>
+</div>
+
+<footer class="site"><div class="inner">
+  <span>&copy; <span id="yr"></span> Telcodex.io &middot; The 6G Standards &amp; Architecture Codex.</span>
+  <nav class="flinks">
+    <a href="articles.html">Articles</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="policy.html?doc=privacy" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="policy.html?doc=cookie" target="_blank" rel="noopener">Cookie Policy</a>
+    <a href="policy.html?doc=terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+    <button type="button" id="ccSettings">Cookie settings</button>
+    <button type="button" id="ccDoNotSell">Do Not Sell or Share My Info</button>
+  </nav>
+</div></footer>
+
+<div class="cc-banner hidden" id="ccBanner" role="dialog" aria-live="polite" aria-label="Cookie consent"><div class="cc-inner">
+  <div class="cc-text"><strong>We value your privacy</strong>We use strictly necessary cookies to make this site work. With your consent we would also use cookies for analytics and advertising (including Google AdSense). You can accept all, reject all non-essential cookies, or choose per category. See our <a href="policy.html?doc=cookie" target="_blank" rel="noopener">Cookie Policy</a>, <a href="policy.html?doc=privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="policy.html?doc=terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>.</div>
+  <div class="cc-actions"><button type="button" class="btn btn-outline" id="ccReject">Reject all</button><button type="button" class="btn btn-outline" id="ccCustomize">Customize</button><button type="button" class="btn btn-primary" id="ccAccept">Accept all</button></div>
+</div></div>
+<div class="cc-overlay hidden" id="ccOverlay" role="dialog" aria-modal="true" aria-label="Cookie preferences"><div class="cc-modal">
+  <h2>Cookie preferences</h2><p>Choose which categories of cookies you allow. Strictly necessary cookies are always on. You can change these choices any time via Cookie settings in the footer.</p>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Strictly necessary</h3><span class="locked">Always on</span></div><p>Required for core functionality and to remember your consent choices.</p></div>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Analytics</h3><label class="sw"><input type="checkbox" id="catAnalytics" /><span class="slider"></span></label></div><p>Anonymous, aggregated usage. Loads only if enabled.</p></div>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Advertising</h3><label class="sw"><input type="checkbox" id="catAds" /><span class="slider"></span></label></div><p>Google AdSense and personalised/limited ads. Loads only if enabled.</p></div>
+  <div class="cc-modal-actions"><button type="button" class="btn btn-outline" id="ccModalReject">Reject all</button><button type="button" class="btn btn-primary" id="ccModalSave">Save choices</button></div>
+</div></div>
+
+<script>window.PAGE={md:"articles/sub-thz-6g.md"};</script>
+<script src="assets/page.js"></script>
+</body>
+</html>

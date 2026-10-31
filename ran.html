@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>6G RAN in 3GPP — Spectrum, Air Interface &amp; MIMO | Telcodex.io</title>
+<meta name="description" content="The 6G radio access network in 3GPP: the gNB CU/DU split, the new air interface, sub-THz and upper mid-band spectrum, massive MIMO, AI-native radio, ISAC and RIS." />
+<meta name="keywords" content="6G RAN, radio access network, sub-THz, FR3, air interface, massive MIMO, AI-native radio, RIS, 3GPP" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://telcodex.io/ran.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Telcodex.io" />
+<meta property="og:title" content="6G RAN in 3GPP — Spectrum, Air Interface & MIMO" />
+<meta property="og:description" content="The gNB split, new air interface, sub-THz/FR3 spectrum, massive MIMO, AI-native radio, ISAC and RIS." />
+<meta property="og:url" content="https://telcodex.io/ran.html" />
+<meta name="twitter:card" content="summary" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"6G RAN in 3GPP — Spectrum, Air Interface & MIMO","description":"The 6G radio access network in 3GPP: the gNB CU/DU split, the new air interface, sub-THz and upper mid-band spectrum, massive MIMO, AI-native radio, ISAC and RIS.","author":{"@type":"Organization","name":"Telcodex.io"},"publisher":{"@type":"Organization","name":"Telcodex.io"},"mainEntityOfPage":"https://telcodex.io/ran.html","inLanguage":"en"}
+</script>
+<!-- STEP 1: AdSense verification tag — paste here when approved -->
+<!-- STEP 2: Google Funding Choices (CMP) snippet — paste here -->
+<link rel="stylesheet" href="assets/page.css" />
+</head>
+<body>
+<div class="topbar"><div class="inner"><nav><a href="/">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></div>
+<header class="site"><div class="inner">
+  <a class="brandlink" href="/"><div class="brand"><span class="logo">6G</span><div><h1>6G Network Evolution</h1><div class="sub">The 6G Standards &amp; Architecture Codex</div></div></div></a>
+</div></header>
+<nav class="topics"><div class="inner">
+  <a href="/" data-key="home">Home</a>
+  <a href="standardization.html" data-key="standardization">Standardization &amp; Timeline</a>
+  <a href="features.html" data-key="features">Features</a>
+  <a href="architecture.html" data-key="architecture">Network Architecture</a>
+  <a href="ran.html" data-key="ran">RAN</a>
+  <a href="core.html" data-key="core">Core</a>
+  <a href="management.html" data-key="management">Network Management</a>
+</div></nav>
+
+<div class="layout">
+  <main>
+    <article class="doc" id="doc">
+<!-- prerendered -->
+<h1>6G RAN — The Radio Access Network in 3GPP</h1>
+<p>Get to grips with the radio side of 6G — how the access network is expected to evolve in 3GPP across the Release 20 study phase and the planned Release 21 normative work.</p>
+<blockquote><p><strong>Status key:</strong> <em>Study</em> = Technical Report / feasibility work. <em>Normative</em> = Technical Specification with approved content. <em>Planned</em> = Rel-21 scope stated by 3GPP, not yet frozen.</p></blockquote>
+<hr/>
+<h2 id="sec-0">RAN architecture — the split carried forward</h2>
+<p><img alt="gNB CU/DU/RU split evolving for 6G" src="images/6g-ran-split.svg" /></p>
+<p><em>Figure 1 — The 3GPP CU/DU split of the base station (the NR baseline evolved for 6G). The radio unit and fronthaul are shown dashed because they belong to O-RAN, not 3GPP.</em></p>
+<p>The 6G base station is expected to keep the layered split already defined for NR, where the central unit and distributed unit own different layers of the stack.</p>
+<ul><li><strong>Central Unit (gNB-CU)</strong> — hosts the higher layers (RRC, SDAP, PDCP) and connects to the core over the NG interface. It separates into a control-plane part and a user-plane part, linked over the <strong>E1</strong> interface.</li><li><strong>Distributed Unit (gNB-DU)</strong> — hosts RLC, MAC, and the higher physical layer, attached to the CU over the <strong>F1</strong> interface.</li></ul>
+<p>In 3GPP, the base-station architecture is the <strong>CU/DU</strong> split; the lower-layer fronthaul split toward a separate radio unit is specified by the O-RAN Alliance rather than 3GPP, so it is out of scope here. For 6G, the studies are examining whether the access node needs finer disaggregation and how it should attach to an AI-aware core. <em>References: TS 38.401, TS 38.300; F1 (TS 38.470 / TS 38.473); E1 (TS 38.460 / TS 38.463).</em></p>
+<hr/>
+<h2 id="sec-1">A new air interface</h2>
+<p>Release 21 is expected to introduce a new 6G radio rather than another increment of NR. A RAN scenarios-and-requirements study sets the radio targets that this new interface must hit — very high peak rates, strong edge performance, low latency and error rates, improved energy efficiency, and high positioning accuracy — and frames the deployment scenarios the design has to serve. The higher-level 6G usage scenarios come from the ITU-R IMT-2030 framework and from 3GPP's own SA1 service-requirements work. <em>References: 6G RAN study item (FS_6G_RAN); SA1 service requirements in the TS 22-series; ITU-R IMT-2030 framework.</em> <strong>Status: study.</strong></p>
+<hr/>
+<h2 id="sec-2">Candidate spectrum</h2>
+<p>Two new frequency regions are under examination as 6G candidates, alongside the existing sub-7 GHz and mmWave bands:</p>
+<ul><li><strong>Upper mid-band (roughly 7–24 GHz, "FR3")</strong> — a balance of coverage and capacity for wide-area 6G, studied for wide carrier bandwidths with beam management tuned between the characteristics of the lower and higher 5G ranges.</li><li><strong>Sub-THz (roughly 100–300 GHz)</strong> — very wide bandwidths for extreme peak rates over short ranges, where severe path loss and different propagation behaviour call for near-field beamforming and new antenna structures.</li></ul>
+<p><em>References: TR 38.914 and the 6G radio spectrum study, work item FS_6G_NR_spectrum.</em> <strong>Status: study.</strong></p>
+<hr/>
+<h2 id="sec-3">Waveform and channel coding</h2>
+<p>As a reference point, 5G NR uses cyclic-prefix OFDM on the downlink (with a transform-precoded variant on the uplink) and LDPC plus Polar channel coding (TS 38.211, TS 38.212). Whether 6G keeps these waveform and coding choices, or departs from them — particularly for the sub-THz bands — is still under discussion in 3GPP; no 6G waveform or coding scheme has been formally agreed. <strong>Status: open / under study (no 6G decision yet).</strong></p>
+<hr/>
+<h2 id="sec-4">Massive MIMO and antennas</h2>
+<p>Antenna work builds on the Rel-18/19 massive-MIMO foundation toward 6G, including distributed and cell-free arrangements, very large arrays, and near-field operation that becomes relevant at higher frequencies. This feeds directly into the coverage strategy for the upper mid-band and sub-THz. <em>References: 6G RAN study (TR 38.914), building on NR MIMO work.</em> <strong>Status: study.</strong></p>
+<hr/>
+<h2 id="sec-5">AI-native radio</h2>
+<p>Where 5G added AI/ML to specific radio functions, 6G studies making it a built-in design principle across the physical layer (channel estimation, decoding), the MAC (scheduling), and mobility. The work examines learned components, how AI models are provisioned and versioned to devices with appropriate trust handling, and where inference should sit — in the device, the DU, the CU, or the core — depending on latency and compute trade-offs. <em>References: 6G RAN AI study, building on the Rel-18 AI/ML for NR air-interface study (TR 38.843).</em> <strong>Status: study.</strong></p>
+<hr/>
+<h2 id="sec-6">Integrated Sensing and Communication (ISAC) — radio aspects</h2>
+<p>The radio can serve double duty, carrying traffic while also taking radar-like measurements from its own transmissions to detect and track objects. The radio-side work covers sensing accuracy targets (range, velocity, angle), multi-target tracking, the monostatic and bistatic sensing geometries, and keeping sensing and communication from degrading each other. <em>References: requirements TS 22.137, architecture TS 23.137, radio design under the 6G RAN study.</em> <strong>Status: requirements normative, radio under study.</strong></p>
+<hr/>
+<h2 id="sec-7">Reconfigurable Intelligent Surfaces (RIS)</h2>
+<p>A tunable surface can steer incident radio waves toward a chosen direction without an active transmit chain, which is attractive for filling coverage gaps — especially at sub-THz, where propagation loss is high. An open question is whether a RIS needs its own standardised interface to the base station or can be treated as a deployment-level element; the network-controlled repeater is an earlier related concept. <em>References: 3GPP RIS study item (exact TR to be confirmed against the 3GPP work programme).</em> <strong>Status: study.</strong></p>
+<hr/>
+<h2 id="sec-8">Duplex and energy efficiency</h2>
+<p>Two further radio themes under study:</p>
+<ul><li><strong>Flexible duplex</strong> — including full-duplex operation (simultaneous transmit and receive on the same frequency) with self-interference cancellation, and more flexible time/frequency duplex arrangements.</li><li><strong>Energy efficiency</strong> — treated as a first-class radio design constraint, covering deeper base-station sleep modes, AI-driven traffic prediction for pre-emptive sleep, and energy-proportional operation, with management-side reporting of energy KPIs. <em>References: TR 38.914 scenarios, energy-efficiency management TS 28.310 / TS 28.552.</em> <strong>Status: study (5G energy management normative).</strong></li></ul>
+<hr/>
+<h2 id="sec-9">RAN specs and studies at a glance</h2>
+<div class="table-wrap"><table><thead><tr><th>Spec / item</th><th>Area</th><th>Status</th></tr></thead><tbody><tr><td>FS_6G_RAN</td><td>6G RAN study item</td><td>Study</td></tr><tr><td>ITU-R IMT-2030 + 3GPP SA1 (TS 22-series)</td><td>6G usage scenarios &amp; service requirements</td><td>Study / normative reqs</td></tr><tr><td>TR 38.843</td><td>AI/ML for NR (foundation for AI-native radio)</td><td>Study (Rel-18)</td></tr><tr><td>3GPP RIS study item</td><td>Reconfigurable Intelligent Surfaces (TR to be confirmed)</td><td>Study</td></tr><tr><td>TS 22.137 / TS 23.137</td><td>ISAC requirements / architecture</td><td>Normative</td></tr><tr><td>TS 38.211 / TS 38.212</td><td>NR waveform / channel coding (reference baseline)</td><td>Normative</td></tr><tr><td>TS 38.401, TS 38.300</td><td>gNB CU/DU architecture and overall description</td><td>Normative (evolving)</td></tr><tr><td>TS 28.310, TS 28.552</td><td>Energy-efficiency management / performance measurements</td><td>Normative</td></tr></tbody></table></div>
+<hr/>
+<div class="related"><h4>Related topics</h4><div class="cards"><a href="standardization.html"><strong>Standardization & Timeline</strong><span>Release 20 vs 21 and the approved 6G freeze dates.</span></a><a href="features.html"><strong>6G Features</strong><span>Sub-THz, AI-native radio, ISAC, ambient IoT and more.</span></a><a href="architecture.html"><strong>Network Architecture</strong><span>How the RAN and core evolve for 6G, with diagrams.</span></a></div></div>
+</article>
+    <div class="ad ad-inline"><span class="ad-label">Advertisement</span></div>
+  </main>
+  <aside>
+    <div class="side-card"><h4>On this page</h4><nav class="toc" id="toc"><a href="#sec-0">RAN architecture — the split carried forward</a><a href="#sec-1">A new air interface</a><a href="#sec-2">Candidate spectrum</a><a href="#sec-3">Waveform and channel coding</a><a href="#sec-4">Massive MIMO and antennas</a><a href="#sec-5">AI-native radio</a><a href="#sec-6">Integrated Sensing and Communication (ISAC) — radio aspects</a><a href="#sec-7">Reconfigurable Intelligent Surfaces (RIS)</a><a href="#sec-8">Duplex and energy efficiency</a><a href="#sec-9">RAN specs and studies at a glance</a></nav></div>
+    <div class="ad rail"><span class="ad-label">Advertisement</span></div>
+  </aside>
+</div>
+
+<footer class="site"><div class="inner">
+  <span>© <span id="yr"></span> Telcodex.io · The 6G Standards &amp; Architecture Codex.</span>
+  <nav class="flinks">
+    <a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="policy.html?doc=privacy" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="policy.html?doc=cookie" target="_blank" rel="noopener">Cookie Policy</a>
+    <a href="policy.html?doc=terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+    <button type="button" id="ccSettings">Cookie settings</button>
+    <button type="button" id="ccDoNotSell">Do Not Sell or Share My Info</button>
+  </nav>
+</div></footer>
+
+<div class="cc-banner hidden" id="ccBanner" role="dialog" aria-live="polite" aria-label="Cookie consent"><div class="cc-inner">
+  <div class="cc-text"><strong>We value your privacy</strong>We use strictly necessary cookies to make this site work. With your consent we would also use cookies for analytics and advertising (including Google AdSense). You can accept all, reject all non-essential cookies, or choose per category. See our <a href="policy.html?doc=cookie" target="_blank" rel="noopener">Cookie Policy</a>, <a href="policy.html?doc=privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="policy.html?doc=terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>.</div>
+  <div class="cc-actions"><button type="button" class="btn btn-outline" id="ccReject">Reject all</button><button type="button" class="btn btn-outline" id="ccCustomize">Customize</button><button type="button" class="btn btn-primary" id="ccAccept">Accept all</button></div>
+</div></div>
+<div class="cc-overlay hidden" id="ccOverlay" role="dialog" aria-modal="true" aria-label="Cookie preferences"><div class="cc-modal">
+  <h2>Cookie preferences</h2><p>Choose which categories of cookies you allow. Strictly necessary cookies are always on. You can change these choices any time via “Cookie settings” in the footer.</p>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Strictly necessary</h3><span class="locked">Always on</span></div><p>Required for core functionality and to remember your consent choices.</p></div>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Analytics</h3><label class="sw"><input type="checkbox" id="catAnalytics" /><span class="slider"></span></label></div><p>Anonymous, aggregated usage. Loads only if enabled.</p></div>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Advertising</h3><label class="sw"><input type="checkbox" id="catAds" /><span class="slider"></span></label></div><p>Google AdSense and personalised/limited ads. Loads only if enabled.</p></div>
+  <div class="cc-modal-actions"><button type="button" class="btn btn-outline" id="ccModalReject">Reject all</button><button type="button" class="btn btn-primary" id="ccModalSave">Save choices</button></div>
+</div></div>
+
+<script>window.PAGE={md:"6G-RAN.md",key:"ran"};</script>
+<script src="assets/page.js"></script>
+</body>
+</html>

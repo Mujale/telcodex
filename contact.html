@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact · Telcodex.io — The 6G Standards &amp; Architecture Codex</title>
+<meta name="description" content="Contact Telcodex.io with questions, corrections, or feedback about our 6G standards coverage — the 3GPP timeline, features, and network architecture." />
+<meta name="robots" content="index, follow" />
+<style>
+  :root{
+    --bg:#f7f8fb;--surface:#fff;--ink:#1c2433;--ink-soft:#4b5668;--ink-faint:#8a93a6;
+    --line:#e4e8f0;--brand:#2563eb;--brand-3:#7c3aed;--accent-bg:#eef3ff;--good:#0a7d3b;--good-bg:#e6f5ec;
+    --maxw:820px;--pad:clamp(16px,3vw,48px);
+    --sans:Arial,Helvetica,"Helvetica Neue","Segoe UI",system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root{--bg:#0b0f1a;--surface:#121a2b;--ink:#e8edf5;--ink-soft:#aab6c9;--ink-faint:#6f7c93;--line:#223049;--accent-bg:#17233c;--good:#4ade80;--good-bg:#10261a;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:var(--brand);}
+
+  /* shared top bar + title (matches home page) */
+  .topbar{background:var(--surface);border-bottom:1px solid var(--line);}
+  .topbar .inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);display:flex;justify-content:flex-end;}
+  .topbar nav{display:flex;gap:4px;flex-wrap:wrap;}
+  .topbar nav a{color:var(--ink);font-size:12.5px;font-weight:600;letter-spacing:.2px;padding:9px 12px;line-height:1;text-decoration:none;}
+  .topbar nav a:hover{color:var(--brand);}
+  @media (max-width:620px){.topbar .inner{justify-content:center;}}
+  header.title{background:linear-gradient(120deg,var(--brand) 0%,var(--brand-3) 100%);color:#fff;}
+  header.title .inner{max-width:var(--maxw);margin:0 auto;padding:16px var(--pad);display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:space-between;}
+  header.title h1{font-size:17px;font-weight:700;letter-spacing:.2px;}
+  header.title .back{color:rgba(255,255,255,.85);font-size:12.5px;text-decoration:none;}
+  header.title .back:hover{color:#fff;}
+
+  main{max-width:var(--maxw);margin:0 auto;padding:28px var(--pad) 70px;}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(22px,4vw,40px);}
+  h2{font-size:18px;font-weight:700;margin:22px 0 8px;}
+  h2:first-child{margin-top:0;}
+  p,li{color:var(--ink-soft);font-size:15px;margin:0 0 11px;}
+  label{display:block;font-size:14px;font-weight:600;color:var(--ink);margin:14px 0 6px;}
+  input,textarea{width:100%;font-family:inherit;font-size:15px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);}
+  textarea{min-height:140px;resize:vertical;}
+  .btn{margin-top:16px;appearance:none;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;padding:12px 24px;border-radius:10px;border:none;background:var(--brand);color:#fff;}
+  .btn:hover{filter:brightness(1.08);}
+  .muted{color:var(--ink-faint);font-size:13px;}
+  .email{display:inline-block;background:var(--accent-bg);border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:700;color:var(--brand);margin-top:6px;text-decoration:none;}
+  .ok{display:none;background:var(--good-bg);border:1px solid var(--good);color:var(--good);border-radius:10px;padding:14px 16px;font-weight:600;font-size:14px;margin-top:8px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <nav>
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header class="title">
+  <div class="inner">
+    <h1>Contact</h1>
+    <a class="back" href="/">← Back to the Codex</a>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <h2>Get in touch</h2>
+    <p>Questions about 6G standardization, corrections to the content, or feedback on the site
+       are all welcome. You can email us directly at:</p>
+    <p><a class="email" href="mailto:contact@telcodex.io">contact@telcodex.io</a></p>
+
+    <h2>Send a message</h2>
+    <p>Or send it straight from here — submissions are delivered to our inbox.</p>
+
+    <!-- Netlify Forms: the data-netlify attribute makes Netlify capture & email submissions.
+         Works automatically once the site is deployed on Netlify. No server code needed.
+         Configure the notification email in Netlify → Forms → Form notifications. -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?sent=1" id="contactForm">
+      <input type="hidden" name="form-name" value="contact" />
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" autocomplete="name" required />
+
+      <label for="from">Your email</label>
+      <input id="from" name="email" type="email" autocomplete="email" required />
+
+      <label for="msg">Message</label>
+      <textarea id="msg" name="message" required></textarea>
+
+      <button class="btn" type="submit">Send message</button>
+      <div class="ok" id="okMsg">Thanks — your message has been sent. We'll be in touch.</div>
+    </form>
+    <p class="muted" style="margin-top:14px;">We only use your email to reply. See our
+      <a href="policy.html?doc=privacy">Privacy Policy</a>.</p>
+  </div>
+</main>
+
+<script>
+  // Show a success note if Netlify redirected back with ?sent=1
+  if (new URLSearchParams(location.search).get("sent") === "1") {
+    var ok = document.getElementById("okMsg");
+    if (ok) { ok.style.display = "block"; ok.scrollIntoView({behavior:"smooth", block:"center"}); }
+  }
+</script>
+</body>
+</html>

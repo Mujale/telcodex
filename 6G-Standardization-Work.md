@@ -1,8 +1,9 @@
 # 6G Standardization — Work Summary
 
-This document summarizes 6G standardization work in 3GPP: the release structure, the
-approved timeline, and the study/normative scope. It is built **only from 3GPP material** —
-the official 3GPP Release 21 timeline announcement and the 3GPP release/work-plan overview.
+Here is how 6G standardization is taking shape in 3GPP — the release structure, the agreed
+timeline, and what is being studied versus specified. Everything below is drawn **only from
+3GPP material**: the official 3GPP Release 21 timeline announcement and the 3GPP
+release/work-plan overview.
 
 ---
 

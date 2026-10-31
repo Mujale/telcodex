@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ISAC in 6G — Integrated Sensing and Communication (3GPP) | Telcodex.io</title>
+<meta name="description" content="Integrated Sensing and Communication (ISAC) in 6G: how 3GPP (TS 22.137, TS 23.137) turns the network into a sensor, the Sensing Function, service categories and KPIs. Free PDF analysis." />
+<meta name="keywords" content="ISAC, integrated sensing and communication, 6G sensing, TS 22.137, TS 23.137, SenF, 3GPP, joint sensing communication" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://telcodex.io/isac.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Telcodex.io" />
+<meta property="og:title" content="ISAC in 6G — Integrated Sensing and Communication (3GPP)" />
+<meta property="og:description" content="How 3GPP turns the network into a sensor: the Sensing Function, service categories and KPIs. Free PDF analysis." />
+<meta property="og:url" content="https://telcodex.io/isac.html" />
+<meta name="twitter:card" content="summary" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"ISAC in 6G — Integrated Sensing and Communication (3GPP)","description":"Integrated Sensing and Communication (ISAC) in 6G: how 3GPP turns the network into a sensor, the Sensing Function, service categories and KPIs.","author":{"@type":"Organization","name":"Telcodex.io"},"publisher":{"@type":"Organization","name":"Telcodex.io"},"mainEntityOfPage":"https://telcodex.io/isac.html","inLanguage":"en"}
+</script>
+<!-- STEP 1: AdSense verification tag — paste here when approved -->
+<!-- STEP 2: Google Funding Choices (CMP) snippet — paste here -->
+<link rel="stylesheet" href="assets/page.css" />
+</head>
+<body>
+<div class="topbar"><div class="inner"><nav><a href="/">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></div>
+<header class="site"><div class="inner">
+  <a class="brandlink" href="/"><div class="brand"><span class="logo">6G</span><div><h1>6G Network Evolution</h1><div class="sub">The 6G Standards &amp; Architecture Codex</div></div></div></a>
+</div></header>
+<nav class="topics"><div class="inner">
+  <a href="/" data-key="home">Home</a>
+  <a href="standardization.html" data-key="standardization">Standardization &amp; Timeline</a>
+  <a href="features.html" data-key="features">Features</a>
+  <a href="architecture.html" data-key="architecture">Network Architecture</a>
+  <a href="ran.html" data-key="ran">RAN</a>
+  <a href="core.html" data-key="core">Core</a>
+  <a href="management.html" data-key="management">Network Management</a>
+</div></nav>
+
+<div class="layout">
+  <main>
+    <article class="doc" id="doc">
+      <div class="kicker">6G Feature Spotlight</div>
+      <h1>Integrated Sensing and Communication (ISAC)</h1>
+      <p>Integrated Sensing and Communication lets a single cellular network do two jobs at once: carry normal traffic and sense its surroundings by radio. Instead of bolting on separate radar hardware, ISAC reuses the same spectrum, waveforms, and base stations to detect and track objects, monitor environments, and read human motion — turning the network itself into a distributed sensor.</p>
+      <p>In 3GPP, ISAC is defined across two layers. The service requirements (Stage 1, TS 22.137) set out what the system must do; the architecture (Stage 2, TS 23.137) adds a new core network function, the Sensing Function (SenF), which authorises requests, selects the base stations that will sense, gathers their measurements, and returns results to the requesting application through the exposure function. The base station (gNB) acts as the sensing entity, and in the current release the focus is network-based sensing — with aerial objects such as drones as the first target.</p>
+      <p>The specifications frame seven service categories, from outdoor and indoor object tracking to environmental monitoring, public-safety sensing, vehicle tracking, motion monitoring, and fine-grained gesture recognition. Each carries its own targets for positioning accuracy, resolution, latency, refresh rate, and detection reliability, with security, privacy, consent, and energy efficiency treated as first-class concerns.</p>
+      <p>Looking toward 6G (Releases 20–21), ISAC becomes a defining capability, converging with sub-THz spectrum for finer resolution, AI-native processing, digital-twin networks, and extreme positioning. The full analysis below covers the roadmap, architecture, procedures, KPIs, and open issues in detail.</p>
+      <a class="dl-btn" href="ISAC_6G.pdf" download="ISAC_6G.pdf">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 13h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download full analysis (PDF)
+      </a>
+      <p class="dl-note">ISAC_6G.pdf — complete technical analysis built from 3GPP TS 22.137, TS 23.137 and the Release 20 overview.</p>
+    </article>
+    <div class="ad ad-inline"><span class="ad-label">Advertisement</span></div>
+  </main>
+  <aside>
+    <div class="side-card"><h4>On this page</h4><nav class="toc" id="toc"><span style="font-size:13px;color:var(--ink-faint)">6G Feature Spotlight</span></nav></div>
+    <div class="ad rail"><span class="ad-label">Advertisement</span></div>
+  </aside>
+</div>
+
+<footer class="site"><div class="inner">
+  <span>© <span id="yr"></span> Telcodex.io · The 6G Standards &amp; Architecture Codex.</span>
+  <nav class="flinks">
+    <a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="policy.html?doc=privacy" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="policy.html?doc=cookie" target="_blank" rel="noopener">Cookie Policy</a>
+    <a href="policy.html?doc=terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+    <button type="button" id="ccSettings">Cookie settings</button>
+    <button type="button" id="ccDoNotSell">Do Not Sell or Share My Info</button>
+  </nav>
+</div></footer>
+
+<div class="cc-banner hidden" id="ccBanner" role="dialog" aria-live="polite" aria-label="Cookie consent"><div class="cc-inner">
+  <div class="cc-text"><strong>We value your privacy</strong>We use strictly necessary cookies to make this site work. With your consent we would also use cookies for analytics and advertising (including Google AdSense). You can accept all, reject all non-essential cookies, or choose per category. See our <a href="policy.html?doc=cookie" target="_blank" rel="noopener">Cookie Policy</a>, <a href="policy.html?doc=privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="policy.html?doc=terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>.</div>
+  <div class="cc-actions"><button type="button" class="btn btn-outline" id="ccReject">Reject all</button><button type="button" class="btn btn-outline" id="ccCustomize">Customize</button><button type="button" class="btn btn-primary" id="ccAccept">Accept all</button></div>
+</div></div>
+<div class="cc-overlay hidden" id="ccOverlay" role="dialog" aria-modal="true" aria-label="Cookie preferences"><div class="cc-modal">
+  <h2>Cookie preferences</h2><p>Choose which categories of cookies you allow. Strictly necessary cookies are always on. You can change these choices any time via “Cookie settings” in the footer.</p>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Strictly necessary</h3><span class="locked">Always on</span></div><p>Required for core functionality and to remember your consent choices.</p></div>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Analytics</h3><label class="sw"><input type="checkbox" id="catAnalytics" /><span class="slider"></span></label></div><p>Anonymous, aggregated usage. Loads only if enabled.</p></div>
+  <div class="cc-cat"><div class="cc-cat-head"><h3>Advertising</h3><label class="sw"><input type="checkbox" id="catAds" /><span class="slider"></span></label></div><p>Google AdSense and personalised/limited ads. Loads only if enabled.</p></div>
+  <div class="cc-modal-actions"><button type="button" class="btn btn-outline" id="ccModalReject">Reject all</button><button type="button" class="btn btn-primary" id="ccModalSave">Save choices</button></div>
+</div></div>
+
+<script>window.PAGE={key:"isac"};</script>
+<script src="assets/page.js"></script>
+</body>
+</html>
