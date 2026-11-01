@@ -100,7 +100,7 @@ ARTICLE_TPL = """<!DOCTYPE html>
 <script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"Article","headline":"{title}","description":"{desc}","author":{{"@type":"Organization","name":"Telcodex.io"}},"publisher":{{"@type":"Organization","name":"Telcodex.io"}},"mainEntityOfPage":"https://telcodex.io/{slug}.html","inLanguage":"en"}}
 </script>
-<!-- STEP 1: AdSense verification tag -- paste here when approved -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1740697015974190" crossorigin="anonymous"></script>
 <!-- STEP 2: Google Funding Choices (CMP) snippet -- paste here -->
 <link rel="stylesheet" href="assets/page.css" />
 </head>

@@ -123,7 +123,7 @@ const USE_GOOGLE_CMP = false;      // flip true after pasting Funding Choices sn
 const ENABLE_AUTO_ADS = true;      // use AdSense Auto Ads (one tag) instead of manual slots
 const CONSENT_KEY = "cc_consent_v2";
 const CONSENT_VERSION = 2;
-const ADS_CLIENT = "";             // e.g. "ca-pub-XXXXXXXXXXXXXXXX"
+const ADS_CLIENT = "ca-pub-1740697015974190";   // AdSense Publisher ID
 const ANALYTICS_ID = "";           // e.g. "G-XXXXXXXXXX"
 
 const $ = id => document.getElementById(id);
